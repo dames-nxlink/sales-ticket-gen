@@ -1,0 +1,702 @@
+/***************/
+/* Main Styles */
+/***************/
+
+:root {
+  --color: #f6e9e9;
+  --nav-bg: #272121;
+  --menu-bg: #363333;
+  --menu-button: #363333;
+  --fieldset-bg: #252629;
+  --fieldset-border: #e16428;
+  --input-box-bg: #363333;
+  --input-box-border: #e16428;
+  --textarea-bg: #363333;
+  --textarea-border: #e16428;
+  --dropdown-bg: #363333;
+  --dropdown-border: #e16428;
+  --expand-button-bg: #363333;
+  --legend-color: #f6e9e9;
+}
+
+[data-theme="dark"] {
+  --color: #ffffff;
+  --nav-bg: #454545;
+  --menu-bg: #545454;
+  --menu-button: #545454;
+  --fieldset-bg: #545454;
+  --fieldset-border: #ff8000;
+  --input-box-bg: #545454;
+  --input-box-border: #ff8000;
+  --textarea-bg: #545454;
+  --textarea-border: #ff8000;
+  --dropdown-bg: #545454;
+  --dropdown-border: #ff8000;
+  --expand-button-bg: #5c5c5c;
+  --legend-color: #f6e9e9;
+}
+
+body {
+  background-color: #000000;
+  color: #f6e9e9;
+  font-size: 13px;
+  font-family: verdana;
+}
+
+h1 {
+  font-size: 30x;
+  font-family: verdana;
+}
+
+h2 {
+  font-size: 20px
+  font-family: verdana;
+}
+
+h3 {
+  font-size: 15px;
+  font-family: verdana;
+  font-weight: normal;
+  margin-bottom: 0;
+  padding: 0px;
+}
+
+h4 {
+  font-size: 12px;
+  font-family: verdana;
+  font-weight: normal;
+  margin-bottom: 0;
+  padding: 0px;
+}
+
+h5 {
+  font-size: 11px;
+  font-family: verdana;
+  font-weight: normal;
+  margin-bottom: 0;
+  padding: 0px;
+}
+
+h6 {
+  font-size: 10px;
+  font-family: verdana;
+  font-weight: normal;
+  margin-bottom: 0;
+  padding: 0px;
+}
+
+
+h7{
+
+text-align: center;
+
+
+
+}
+hr {
+  float: center;
+  text-align: center;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #e16428;
+  margin: 1em 0;
+  padding: 0;
+}
+
+p {
+  font-family: verdana;
+  font-size: 13px;
+}
+
+article {
+	display:block;
+	grid-area: topper;
+	width:100%;
+	}
+
+article pre {
+	width:100%;
+}
+
+aside{
+	grid-area: bottomer;
+	padding:0;
+	min-height:100px;
+	width:100%;
+}
+
+section{
+	display:grid;
+	height: 100%;
+	grid-template-rows: 1fr max-content;
+	grid-template-columns: 1fr 180px 500px 1fr;
+	grid-template-areas: ". navi topper ."
+						 ". bottomer bottomer .";
+}
+article {
+	min-height: 320px;
+	grid-area: topper;
+	border-right:1px solid #aaa;
+	border-top:1px solid #aaa;
+	border-radius: 0 10px 10px 0;
+	}
+
+article pre {
+	width:100%;
+}
+
+aside{
+	grid-area: bottomer;
+	padding:0;
+	min-height:100px;
+}
+
+/***************/
+/* Input Box Styles */
+/***************/
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mainInputBox {
+  font-size: 13px;
+  float: left;
+  background-color: var(--input-box-bg);
+  color: #f6e9e9;
+  padding: 8px 4px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid var(--input-box-border);
+  width: 225px;
+}
+
+.mainInputBox2 {
+  font-size: 13px;
+  float: right;
+  background-color: var(--input-box-bg);
+  color: #f6e9e9;
+  padding: 8px 4px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid var(--input-box-border);
+  width: 225px;
+}
+
+.mainInputBox3 {
+  font-size: 13px;
+  float: left;
+  background-color: var(--input-box-bg);
+  color: #f6e9e9;
+  padding: 8px 4px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid var(--input-box-border);
+  width: 225px;
+}
+
+.textboxInput {
+  font-size: 13px;
+  float: left;
+  background-color: var(--input-box-bg);
+  color: #f6e9e9;
+  padding: 8px 4px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid var(--input-box-border);
+  width: 100%;
+}
+
+.smallTextbox {
+  text-align: center;
+  font-size: 12px;
+  background-color: var(--input-box-bg);
+  color: #f6e9e9;
+  padding: 6px 6px;
+  margin: 0px 0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid var(--input-box-border);
+  width: 50px;
+}
+
+.inputText {
+  height: 400px;
+}
+
+.scinputText {
+  height: 250px;
+}
+
+input:focus {
+  background-color: #ffe0bd;
+  color: black;
+}
+
+select:focus {
+  background-color: #ffe0bd;
+  color: black;
+}
+
+fieldset {
+  border-color: var(--fieldset-border);
+  background-color: var(--fieldset-bg);
+  width: 95%;
+}
+
+.fieldsetTop {
+  border-color: var(--fieldset-border);
+  background-color: var(--fieldset-bg);
+  padding: 10px 8px 8px 8px;
+  width: 95%;
+}
+
+legend {
+  font-family: Copperplate, "Copperplate Gothic Light";
+	font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 600;
+  color: var(--legend-color);
+}
+
+input[type=checkbox] {
+  font-size: 14px;
+  color: #e16428;
+  cursor: pointer;
+}
+
+.checkbox-grid {
+  font-size: 12.5px;
+  padding: 0px 0px 0px 0px;
+  cursor: pointer;
+}
+
+input[type=radio] {
+  font-size: 14px;
+  color: #e16428;
+  cursor: pointer;
+}
+
+/***************/
+/* Textarea Styles */
+/***************/
+
+textarea {
+  height: 120px;
+  width: 100%;
+  font-size: 13px;
+  padding: 12px 4px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid var(--textarea-border);
+  border-radius: 4px;
+  background-color: var(--textarea-bg);
+  color: #f6e9e9;
+  margin: 8px 0;
+}
+
+.textarea200 {
+  height: 200px;
+  width: 100%;
+  font-size: 13px;
+  padding: 12px 4px;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border: 1px solid var(--textarea-border);
+  background-color: var(--textarea-bg);
+  color: #f6e9e9;
+  margin: 8px 0;
+}
+
+.textarea300 {
+  height: 300px;
+  width: 100%;
+  font-size: 13px;
+  padding: 12px 4px;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border: 1px solid var(--textarea-border);
+  background-color: var(--textarea-bg);
+  color: #f6e9e9;
+  margin: 8px 0;
+}
+
+textarea:focus {
+  background: #ffe0bd;
+  color: black;
+}
+
+/***************/
+/* Dropdown Styles */
+/***************/
+
+.dropdown {
+  border: 2px solid black;
+  border-radius: 6px;
+  background-color: var(--dropdown-bg);
+  color: #ffffff;
+  padding: 7px 4px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 13px;
+  border: 1px solid var(--dropdown-border);
+  width: 100%;
+}
+
+.dropdownLeft {
+  float: left;
+  border: 2px solid black;
+  border-radius: 6px;
+  background-color: var(--dropdown-bg);
+  color: #ffffff;
+  padding: 7px 4px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  width: 225px;
+  font-size: 13px;
+  border: 1px solid var(--dropdown-border);
+}
+
+.dropdownRight {
+  float: right;
+  border: 2px solid black;
+  border-radius: 6px;
+  background-color: var(--dropdown-bg);
+  color: #ffffff;
+  padding: 7px 4px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  width: 225px;
+  font-size: 13px;
+  border: 1px solid var(--dropdown-border);
+}
+
+.smallDropdown {
+  border-radius: 5px;
+  background-color: var(--dropdown-bg);
+  color: #ffffff;
+  padding: 6px 6px;
+  width: 175px;
+  font-size: 13px;
+  border: 1px solid var(--dropdown-border);
+}
+
+.smallerDropdown {
+  border-radius: 5px;
+  background-color: var(--dropdown-bg);
+  color: #ffffff;
+  padding: 6px 6px;
+  width: 125px;
+  font-size: 13px;
+  border: 1px solid var(--dropdown-border);
+}
+
+/***************/
+/* Placeholder Text Styles */
+/***************/
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #b4b4b8;
+  font-size: 13px;
+  opacity: 2; /* Firefox */
+}
+
+/***************/
+/* Button Styles */
+/***************/
+
+button{
+  border-radius: 8px;
+  border: none;
+  background-color: #e16428;
+  color: #f6e9e9;
+}
+
+.generateNote {
+  font-size: 15px;
+  color: #f6e9e9;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.redButton {
+  font-size: 15px;
+  background-color: #FF5733;
+  border-radius: 8px;
+  border:none;
+  padding: 12px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-sc {
+  font-size: 15px;
+  background-color: #e16428;
+  color: #f6e9e9;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-prefill {
+  font-size: 11px;
+  background-color: #517a87;
+  color: #f6e9e9;
+  padding: 2px 2px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width: 42%;
+  height: 25px;
+  cursor: pointer;
+  float: right;
+}
+
+.btn-prefill2 {
+  font-size: 11px;
+  background-color: #517a87;
+  color: #f6e9e9;
+  padding: 2px 2px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width: 42%;
+  height: 25px;
+  cursor: pointer;
+  float: left;
+}
+
+.btn-timer {
+  font-size: 14px;
+  padding: 4px 0px;
+  text-decoration: none;
+  margin: 2px 2px;
+  width: 45%;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn-copy {
+  font-size: 12px;
+  background-color: #e16428;
+  border: none;
+  color: #f6e9e9;
+  padding: 4px 0px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width: 18%;
+  cursor: pointer;
+}
+
+/***************/
+/* Menu Styles */
+/***************/
+
+.tabcontent {
+  display: none;
+  padding: 0px 10px;
+}
+
+.mainMenu {
+  /*Far Back Menu*/
+  grid-area: navi;
+  padding:0px 10px;
+  background-color: var(--menu-bg);
+  display:flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+nav{
+	/* Front Menu */
+  margin-top: 10px;
+	padding:20px 10px 8px 10px;
+	background-color: var(--nav-bg);
+	display:flex;
+	flex-direction: column;
+	border-radius: 8px;
+  position:sticky;
+  top:10px;
+}
+
+nav img{
+  margin-bottom:15px;
+}
+
+.buttonMenu {
+  background-color: var(--menu-button);
+  color: var(--menu-color);
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  margin-top: 6px;
+  padding: 7px 6px;
+  transition: 0.1s;
+  font-size: 14px;
+}
+
+/* Change background color of buttons on hover */
+button:hover {
+  background-color: #d17206;
+  color:#ddd;
+  border-radius: 8px;
+}
+
+/* Create an active/current tablink class */
+button.active {
+  background-color: #e16428;
+  border-radius: 8px;
+}
+
+.menuEraseButton {
+  font-size: 14px;
+  background-color: #FF5733;
+  border: none;
+  color: #f6e9e9;
+  padding: 7px 0px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/********************************************* Timer Styles *********************************************/
+
+div.timer {
+  align-content:center;
+  border:1px #e16428 solid;
+  width:130px;
+  height:55px;
+  line-height:55px;
+  font-size:40px;
+  font-family:"Courier New", Courier, monospace;
+  text-align:center;
+  margin:5px;
+}
+
+/********************************************* Accordion Styles *********************************************/
+
+.accordion {
+  background-color: var(--expand-button-bg);
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  border: 1px #e16428 solid;
+  text-align: left;
+  outline: none;
+  font-size: 14px;
+  transition: 0.1s;
+}
+
+.accordion:hover {
+  background-color: #e16428;
+  color: #ffffff;
+}
+
+.panel {
+  padding: 0px;
+  display: none;
+  overflow: hidden;
+}
+
+/********************************************* Scrollbar Styles *********************************************/
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e16428;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #e16428;
+}
+
+/********************************************* Light Theme Button *********************************************/
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  /* em {
+    margin-left: 10px;
+    font-size: 1rem;
+  } */
+}
+.theme-switch {
+  display: inline-block;
+  height: 20px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: -10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .6s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 2px;
+  content: "";
+  height: 16px;
+  left: 0px;
+  position: absolute;
+  transition: .4s;
+  width: 16px;
+}
+
+input:checked + .slider {
+  background-color: #e16428;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

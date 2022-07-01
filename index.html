@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- **************************** David And Sydney Created this page for Nextlink Internet, based on previous works from Bob and Wihl ****************************-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Tickets (v4.8)</title>
+
+
+
+    <!-- Date Picker jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="files/css/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+      //Date Textbox to Datepicker jQuery
+      $( function() {
+        $( "#atDate" ).datepicker({dateFormat: "m-d-y", changeMonth: true, changeYear: true,});
+      } );
+
+	   //Date Textbox to Datepicker jQuery
+      $( function() {
+        $( "#ssDate" ).datepicker({dateFormat: "m-d-y", changeMonth: true, changeYear: true,});
+      } );
+
+	    //Date Textbox to Datepicker jQuery
+      $( function() {
+        $( "#supDate" ).datepicker({dateFormat: "m-d-y", changeMonth: true, changeYear: true,});
+      } );
+    </script>
+
+    <!-- Update the v=Number anytime you make changes, so there is no cache issues -->
+    <link rel="stylesheet" href="files/css/styles.css?v=1.3"> <!-- CSS for all pages-->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"> <!-- CSS for link icons -->
+</head>
+
+
+<!-- **************************** Main Navigation Menu **************************** -->
+
+<section>
+  <div class="mainMenu">
+    <nav>
+      <img src="files/images/nextlink-logo.png" alt="Nextlink" height="25px" style="padding-bottom: 0px;" />
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'appointmentTicket')" id="defaultOpen"><i class="fas fa-clipboard-check"></i>  Appointment Ticket</button>
+	  <button class="tablinks buttonMenu" onclick="openTab(event, 'salesInquiry')" id="defaultOpen"><i class="fas fa-money-check"></i> Sales Inquiry Ticket</button>
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'callCenter')" id="defaultOpen"><i class="fas fa-phone-volume"></i> Call Center Ticket</button>
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'supervisorTicket')" id="defaultOpen"><i class="fas fa-exclamation-circle"></i>  Supervisor Ticket</button>
+	  
+      <!-- <button class="tablinks buttonMenu" onclick="openTab(event, 'dispatchTicket')" id="defaultOpen"><i class="fas fa-headset"></i>  Dispatch Ticket</button>
+	  <button class="tablinks buttonMenu" onclick="openTab(event, 'siteSurvey')" id="defaultOpen"><i class="fas fa-binoculars"></i> Site Survey</button>
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'Move')" id="defaultOpen"><i class="fas fa-suitcase"></i> Move</button>
+	  <button class="tablinks buttonMenu" onclick="openTab(event, 'Transfer')" id="defaultOpen"><i class="fas fa-exchange-alt"></i> Transfer</button>
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'fiber')" id="defaultOpen"><i class="fab fa-fonticons"></i> Fiber</button>
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'thingstoKnow')" id="defaultOpen"><i class="fas fa-book-reader"></i> Things to Know</button>
+	  <button class="tablinks buttonMenu" onclick="openTab(event, 'damageClaim')" id="defaultOpen"><i class="fas fa-exclamation-triangle"></i> Damage Claim Ticket</button>
+	  <button class="tablinks buttonMenu" onclick="openTab(event, 'towerHost')" id="defaultOpen"><i class="fas fa-broadcast-tower"></i> Tower Host</button>
+	  <button class="tablinks buttonMenu" onclick="openTab(event, 'towerSurvey')" id="defaultOpen"><i class="fas fa-wifi"></i> Tower Site Survey/Tower Build</button>
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'voip')" id="defaultOpen"><i class="fas fa-phone"></i> VOIP</button>
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'upgradeRequest')" id="defaultOpen"><i class="fas fa-phone"></i> Upgrade Requests</button> -->
+
+
+
+      <center><hr></center>
+      <button class="tablinks menuEraseButton" onClick="window.location.reload()" value="Erase Everything"><i class="fas fa-times-circle"></i>  Erase Everything</button>
+<br>
+    
+<br>
+    </nav>
+  </div>
+
+  <article>
+
+      <!-- **************************** Appointment Ticket **************************** -->
+
+      <div id="appointmentTicket" class="tabcontent">
+          <form id="appointmentTicketForm">
+              <fieldset class="fieldsetTop">
+                  <legend><i class="fas fa-clipboard-check"></i>  Appointment Ticket</legend>
+
+
+                  <input type="text" class="mainInputBox" placeholder="Who's Calling?" required id="atName">
+                  <input type="text" class="mainInputBox2" placeholder="Address" required id="AtAddress">
+                  <input type="text" id="atCallId" placeholder="UJET Call ID (required)" name="callId" class="textboxInput" autocomplete="off" required>
+
+
+                  <select id="apptType" class="dropdown">
+                      <option value="">-- Appointment Type --</option>
+                      <option value="install">Installation</option>
+                      <option value="siteSurvey">Site Survey</option>
+                  </select>
+                  <select id="rentOwn" class="dropdown">
+                      <option value="">-- Rent or Own? --</option>
+                      <option value="rent">Rent</option>
+                      <option value="own">Own</option>
+                  </select>
+                  <label id="llaLabel"><input type="checkbox" id='lla'> LLA uploaded? </label><br>
+
+
+
+
+
+                  <input type="text" placeholder="Account Number?" required id="atAccountNumber" class="mainInputBox" autocomplete="off">
+                  <input type="text" id='atMessage' placeholder="Important Message (dogs, gate codes, etc)" name="importantmessage" class="mainInputBox2" autocomplete="off">
+                  
+                  <br><br>
+
+                  <label><input type="radio" value="2Yr" name="planType" checked>2 Year Plan</label>
+                  <label style="color: #ff8000;"><input type="radio" value="M2M" name="planType">Month to Month Plan</label>
+                  <label><input type="radio" value="HUBB" name="planType">HUBB Plan</label>
+
+                  <br>
+
+                  <select id="atPlanType" class="dropdown planType">
+                      <option value="">-- Desired Plan Selection --</option>
+                      <option value="Next15">Next15</option>
+                      <option value="Next20">Next20</option>
+                      <option value="Next25">Next25</option>
+                      <option value="Next35">Next35</option>
+                      <option value="Next50">Next50</option>
+
+                      <option value="Next100">Next100</option>
+
+                  </select>
+<!-- 
+
+
+                  <select id="M2MPlanType" class="dropdown planType">
+                      <option value="">-- Month to Month Pricing --</option>
+                      <option value="Next10">Next10 $59.95</option>
+                      <option value="Next15">Next15 $69.95</option>
+                      <option value="Next20">Next20 $79.95</option>
+                      <option value="Next25">Next25 $89.95</option>
+                      <option value="Next35">Next35 $99.95</option>
+                      <option value="Next50">Next50 $119.95</option>
+                      <option value="Next100">Next100 $139.95</option>
+
+
+
+                  </select>
+
+
+
+                  <select id="HUBBPlanType" class="dropdown planType">
+                      <option value="">-- HUBB Pricing --</option>
+                      <option value="Next10">Next10 $59.95</option>
+                      <option value="Next15">Next15 $69.95</option>
+                      <option value="Next20">Next20 $79.95</option>
+                      <option value="Next25">Next25 $89.95</option>
+                      <option value="Next35">Next35 $99.95</option>
+                      <option value="Next50">Next50 $109.95</option>
+                      <option value="Next100">Next100 $119.95</option>
+
+                  </select>
+ -->
+
+                  <div>
+                      <label for="atACP">ACP Eligible?</label>
+                      <input type="checkbox" id="atACP" name="atACP" autocomplete="off"><br>
+                      <label for="atFiber">Fiber Eligible?</label>
+                      <input type="checkbox" id="atFiber" name="atFiber" autocomplete="off"><br>
+                      
+                      <input type="text" id="atDevelopment" name="atDevelopment" autocomplete="off" placeholder="Fiber Development?" class="textboxInput">
+
+                      <br>
+
+                      <!-- ****************************************  Additional Features    **************************************************************** -->
+                      <!---I messed up the additional features somehow-->
+                      <!-- <div> -->
+
+                      <button class="accordion"><i class="fas fa-plus-circle"></i> &nbsp; Additional Features</button>
+                      <div class="panel">
+                          <br>
+
+                          <!-- <label><input type="checkbox" name="itAdtlCB" id='atZyxel'><font color="#ff8000"> Zyxel $6.99</font></label>
+                          <label><input type="checkbox" name="itAdtlCB" id='atMikrotik'> Mikrotik $0.00</label><br> <br>
+
+                          <label><input type="checkbox" name="itAdtlCB" id='athAP'><font color="#ff8000"> MT hAP $0.00</font></label>
+                          <label><input type="checkbox" name="itAdtlCB" id='atMesh'> Mesh Unit $3.99</label><br> <br>
+
+                          <label><input type="checkbox" name="itAdtlCB" id='atStatic'><font color="#ff8000"> Static IP $10.00 </font></label>
+                          <label><input type="checkbox" name="itAdtlCB" id='atVOIP'> VOIP $19.99</label><br> <br>
+
+                          <label><input type="checkbox" name="itAdtlCB" id='atLDrop'><font color="#ff8000"> Line Drop $50</font></label>
+                          <label><input type="checkbox" name="itAdtlCB" id='atExRDish'> Extended Range Dish $10.00</label><br><br> -->
+
+
+
+
+
+                          <div>
+                              <label for="atRouter">Manged Router? ($6.99/Month)</label>
+                              <input type="checkbox" id="atRouter" name="atRouter" autocomplete="off"><br>
+                              <br><br>
+                              <bold style="font-weight: bold;"> TriPod Options:</bold> <br><br>
+                              <label> <input type="radio" name="itTri" price="5.00" value="tri3">3' Tipod $5.00 </label>
+                              <label> <input type="radio" name="itTri" price="10.00" value="tri10"><font color="#ff8000">10' Tripod $10.00 </font></label>
+                              <label> <input type="radio" name="itTri" price="0.00" value="" checked id="atTriNa">N/A </label>
+                          </div>
+
+                          <br><br>
+
+                          <div>
+                              <bold style="font-weight: bold;"> Mast Options:</bold> Mast is needed <input type="checkbox" id="atMastReq"> <br><br>
+                              <label>
+                                  Purchase Type:<br>
+                                  <input type="radio" name="itMastType" value="monthly">Monthly</input>
+                                  <input type="radio" name="itMastType" value="outright">Outright</input>
+                                  <input type="radio" name="itMastType" value="">N/A</input>
+                              </label> <br><br>
+
+
+                              <!-- <label id="atMastSize">
+                                  <input type="text" name="itMastSize" id="itMastSize" placeholder="Mast Size" class="textboxInput">
+
+                              </label> -->
+                          </div>
+
+                      </div>
+
+
+
+                      <br><br>
+
+                      <!-- *****************************************  Sales Options       ****************************************************************** -->
+
+                      <div>
+                          <!-- <button class="accordion"><i class="fas fa-plus-circle"></i> &nbsp; Sales Options</button>
+                          <div class="panel">
+                              <br>
+                              CAF/HUBB:<br>
+                              <label style="color: #ff8000;"><input type="radio" name="caf/hubb" value="caf">CAF?</label><span></span>
+                              <label><input type="radio" name="caf/hubb" value="hubb">HUBB?</label>
+                              <label style="color: #ff8000;"><input type="radio" name="caf/hubb" value="" checked>Neither</label><br><br>
+
+
+                              <label><input type="checkbox" id='atVerHubb'>Verify in Sales App?</label><br><br>
+                              <label style="color: #ff8000;"><input type="checkbox" id='atMkHubb'> Did you mark on user page?</label> <br><br>
+                              Did you offer VOIP? <br><br>
+                              <label style="color: #ff8000;"><input type="radio" name="itVOIP" value="Yes">Yes</label>
+                              <label><input type="radio" name="itVOIP" vlaue="No"> No</label>
+                              <label style="color: #ff8000;"><input type="radio" name="itVOIP" value="N/A" checked> N/A </label><br><br>
+                              Did you offer Dish Network?<br>
+                              <label style="color: #ff8000;"><input type="radio" name="itDish" value="Yes"> Yes</label>
+                              <label><input type="radio" name="itDish" vlaue="No"> No </label>
+                              <label style="color: #ff8000;"><input type="radio" name="itDish" value="N/A" checked> N/A</label>
+                              <br><br>
+                          </div> -->
+
+
+
+                          <input type="text" id='atZone' placeholder="Zone?" name="" class="mainInputBox" autocomplete="off" required>
+                          <!-- <input type="text" id='atSlot' placeholder="Slot?" name="" class="mainInputBox2" autocomplete="off" required> -->
+                          <input type="text" id='atCoords' placeholder="Coordinates?" name="Coordinates" class="mainInputBox2" autocomplete="off" required>
+                          <input type="text" id='atBeThere' placeholder="Who will be there (over 18 yrs. old)?" name="atBeThere" class="mainInputBox" autocomplete="off" required>
+                          <input type="text" id='atInstallFee' placeholder="Installation/Site Survey Fee (no '$')" name="atInstallFee" class="mainInputBox2" autocomplete="off" required>
+
+                          <input type="text" class="textboxInput" id="atDate" placeholder="MM/DD/YY" type="text" autocomplete="off" />
+                          <br><br>
+
+
+                          <label>
+                              <font color="#ffffff">
+                                  <input type="radio" id='installTimeAM' name="timeInstall" value="8:00 AM -12:00 PM">
+                                  <label for="installTimeAM"> 8:00 AM -12:00 PM</label><br>
+                                  <input type="radio" id='installTimePM' name="timeInstall" value="1:00 PM -5:00 PM">
+                                  <label for="installTimePM"> 1:00 PM -5:00 PM</label> <br><br>
+
+                          </label>
+                          Please click <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Sales%20Process.one%7C1bd9a0c5-f167-431a-934f-055d6ef50ea9%2FGuidelines%20for%20Scheduling%7Caf95d0a6-6bf6-48fa-9c52-3dc27d857e38%2F%29">Scheduling Guidelines</a> for more information. <br><br>
+
+                          Expectations:
+                          <ul>
+                              <li>Autopay Requirements (Visa, Mastercard, Discover, electronic check)</li>
+                              <li>First months bill, install fee, any additional equip/services</li>
+                              <li>Service is not guaranteed until technician verifies signal</li>
+                              <li>Speeds are verified by tech on site </li>
+                              <li>
+                                  The speeds we offer are what is referred to as "burstable", meaning
+                                  we do not guarantee your full plan speeds as they will fluctuate, both
+                                  up and down. However, if plan speeds ever drop below 60% the issue is
+                                  reviewed by our Senior Support team to get this resolved.
+                              </li>
+
+                          </ul>
+                          <label>Expectations Set?</label><input type="checkbox" required>
+                          <br>  <br>
+                          <div>
+                              Reminders:
+                              <ul>
+                                  <li>Tripod has $5/mo fee </li>
+                                  <li>Extended Range Dish $10 fee drops off after 12 months</li>
+                                  <li>Extended Range fee is not applicable for Superlink35 and above</li>
+                                  <li>Router and VOIP services are tied into 1 year agreement</li>
+                                  <li>Speeds are burstable, meaning they will fluctuate, especially during high traffic times</li>
+
+
+
+                              </ul>
+
+                          </div>
+
+
+
+                          <input type="text" id='agent' placeholder="Agent Initials" name="" class="mainInputBox" autocomplete="off" required>
+
+
+
+              </fieldset>
+
+
+              <!--------------text area ------------------>
+
+              <fieldset>
+                  <legend>Important Notes</legend><br>
+                  <textarea id='atNotes' class="textarea200" placeholder="Any relevant information?" autocomplete="off"></textarea>
+                  <textarea id='towersReviewed' class="textarea200" placeholder="Towers Reviewed?" autocomplete="off"></textarea>
+                  <!-- <label>Snipit from GNP Uploaded? <br>
+                    <ul>
+                    <li><label>Yes <input type="radio" name="itGnp" value="yes"></label></li>
+                    <li><label>No <input type="radio" name="itGnp" value="no"></label></li>
+                    </ul>
+                  </label> -->
+
+
+
+
+
+                  <fieldset>
+                      <legend>Ticket Notes:</legend>
+                      <button class="generateNote" type="submit" id="instTicketGen"><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+                      Subject Line: <button class="btn-copy" id="at-sub-btn">COPY</button><br>
+                      <input type="text" class="textboxInput" id='atSubject' autocomplete="off"></textarea><br>
+                      <div>Ticket Display: <button class="btn-copy" id="at-bod-btn">COPY</button></div>
+                      <textarea id='atBody' class="textarea200" autocomplete="off"></textarea><br>
+                  </fieldset>
+          </form>
+      </div>
+
+
+
+      </div>
+
+
+
+
+
+      </fieldset>
+
+<!---------------------------------Sales Inquiry Ticket----------------------------------------->
+
+<div id="salesInquiry" class="tabcontent">
+    <form id="salesInquiryForm">
+    <fieldset class="fieldsetTop">
+        <legend><i class="fas fa-money-check"></i>&nbsp;Sales Inquiry Ticket</legend>
+
+
+        <input type="text" id='siContact' required placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+        <input type="text" id='siNumber' required placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+        <select id="siReason" class="dropdown">
+            <option value="">-- Reason for Call --</option>
+            <option value="Tower Climb"> Inquire about new service</option>
+            <option value="Mast Install"> Pending tower status</option>
+            <option value="General Questions"> General questions</option>
+
+            <option value="Other"> Other</option>
+
+
+            <input type="text" id='siPrevTick' placeholder="Relevant ticket #'s ?" name="" class="mainInputBox" autocomplete="off">
+            <input type="text" id='siPrefer' placeholder="Availability (Weekends, Days, etc) " name="" class="mainInputBox2" autocomplete="off">
+            <input type="text" id="siCallId" placeholder="Ujet Call ID" name="" class="textboxInput" autocomplete="off">
+
+        </select>
+
+
+
+
+
+        <!--------------text area ------------------>
+
+        <fieldset>
+            <legend>Notes:</legend>
+            <textarea id='siTicket' class="textarea200" autocomplete="off"></textarea><br>
+        </fieldset>
+
+
+
+
+        <!--------------GENERATE TICKET ------------------>
+
+
+        <fieldset>
+            <legend>Ticket Notes:</legend>
+            <button class="generateNote" type="submit"><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+            Subject Line: <button class="btn-copy" id="si-sub-btn">COPY</button><br>
+            <input type="text" class="textboxInput" id='siSubject' autocomplete="off"></textarea><br>
+            <div>Ticket Display: <button class="btn-copy" id="si-bod-btn">COPY</button></div>
+            <textarea id='siBody' class="textarea200" autocomplete="off"></textarea><br>
+        </fieldset>
+    </form>
+</div>
+
+
+
+
+<!--------------------------------Call Center Ticket------------------------------------------>
+
+      <div id="callCenter" class="tabcontent">
+        <fieldset class="fieldsetTop">
+            <legend><i class="fas fa-phone-volume"></i>&nbsp;Billing</legend>
+
+
+            <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+            <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+            <select id="reason" class="dropdown">
+                <option value="">-- Reason for Call --</option>
+                <option value="towerclimb"> Collect Site Survey Fee</option>
+                <option value="mastinstall"> Collect Past Due</option>
+                <option value="p2p"> Collect Write Off</option>
+                <option value="tripod"> Make Payment</option>
+                <option value="other"> Credit Request</option>
+                <option value="other"> Change Payment Method</option>
+                <option value="other"> Other</option>
+
+
+                <input type="text" id='prevtick' placeholder="Associated Tickets" name="" class="mainInputBox" autocomplete="off">
+                <input type="text" id='prefer' placeholder="Date" name="" class="mainInputBox2" autocomplete="off">
+
+            </select>
+        </fieldset>
+
+
+
+
+
+        <!--------------text area ------------------>
+
+        <fieldset>
+            <legend>Notes:</legend>
+            <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+        </fieldset><br>
+        <fieldset>
+            Reminders:<br><br><br>
+            Please refer to <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28VoIP-Billing-Support.one%7Cf47e653a-b5c5-407b-bf1e-d8fd035eef13%2FBilling%7C54cfda7b-a032-441d-b0f2-2d076ced8577%2F%29">Team Book > Billing</a> for the most up to date information<br><br>
+
+            <li> Billing Hours: Monday-Friday, 8AM-6PM</li><br>
+            <li>Site Survey Fee's are $70 + tax</li><br>
+
+            <li>Assign tickets to KTrujillo</li><br>
+            <li>
+                If there will be lapse in service due to moving, please include relevant dates in notes.  Please refer to <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Sales%20Process.one%7C1bd9a0c5-f167-431a-934f-055d6ef50ea9%2FMoves%7C8f62f845-4351-4f09-82f8-119683481416%2F%29">Team Book > Moves</a> for more information<br><br>
+            </li>
+
+            <br><br>
+        </fieldset>
+        <br>
+
+        <!----Tech Support------------->
+        <fieldset>
+            <legend><i class="fas fa-phone-volume"></i>&nbsp;Tech Support</legend>
+            <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+            <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+            <select id="reason" class="dropdown">
+                <option value="">-- Reason for Call --</option>
+                <option value="towerclimb"> Plan Upgrade</option>
+                <option value="mastinstall"> Authenticate Equipment</option>
+                <option value="p2p"> Troubleshoot</option>
+                <option value="tripod"> General Questions</option>
+
+
+                <input type="text" id='prevtick' placeholder="Associated Tickets" name="" class="mainInputBox" autocomplete="off">
+                <input type="text" id='prefer' placeholder="Date" name="Date" class="mainInputBox2" autocomplete="off">
+
+
+        </fieldset>
+
+
+        <!--------------text area ------------------>
+
+        <fieldset>
+            <legend>Notes:</legend>
+            <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+        </fieldset><br>
+
+
+        <fieldset>
+
+            Reminders:<br><br><br>
+
+            Please refer to <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28VoIP-Billing-Support.one%7Cf47e653a-b5c5-407b-bf1e-d8fd035eef13%2FSupport%7C88f6eb52-a331-4da3-92fb-1b717a1b8097%2F%29">Team Book > Support</a> for the most up to date information<br><br>
+
+            <li>Support Hours: Monday - Friday, 7 AM to 10 PM; Saturday - Sunday 9AM to 9 PM</li><br>
+            <li>Ticket Assignment: Monday-Friday 7A-4P, VJohnson; 1 PM - 10 PM, MMeraco; Weekends, HWhitaker </li><br>
+            <li>If call queue is backed up, offer to make callback ticket for customer and provide them with ticket number</li><br>
+
+
+        </fieldset>
+
+
+
+
+        <!--------------GENERATE TICKET ------------------>
+
+
+        <fieldset>
+            <legend>Ticket Notes:</legend>
+            <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+            Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+            <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+            <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+        </fieldset>
+
+    </div>
+
+
+
+
+      <!-- **************************** Dispatch Ticket **************************** -->
+
+      <div id="dispatchTicket" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-headset"></i>  Dispatch Ticket</legend>
+              <ul>
+                  <li>Sooner Date Requests are under Supervisor Ticket</li>
+                  <li>Please include any relevant notes</li>
+                  <li>Please Pre-Fill from Install Ticket if applicable</li>
+              </ul>
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+              <select id="reason" class="dropdown">
+                  <option value="">-- Reason for Call --</option>
+                  <option value="towerclimb"> Schedule Tower Climb</option>
+                  <option value="mastinstall"> Schedule Mast Install</option>
+                  <option value="p2p"> Schedule Point to Point</option>
+                  <option value="tripod"> Schedule 10' Tripod</option>
+                  <option value="truck"> Schedule Bucket Truck</option>
+                  <option value="other"> Other</option>
+
+
+                  <input type="text" id='prevtick' placeholder="Associated Tickets" name="" class="mainInputBox" autocomplete="off">
+                  <input type="text" id='prefer' placeholder="Availability (Weekends, Days, etc) " name="" class="mainInputBox2" autocomplete="off">
+
+              </select>
+
+          </fieldset>
+
+          <!--------------text area ------------------>
+
+          <fieldset>
+              <legend>Notes:</legend>
+              <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+          </fieldset>
+
+
+
+
+
+          <!--------------GENERATE TICKET ------------------>
+
+          <fieldset>
+              <legend>Ticket Notes:</legend>
+              <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+              Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+              <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+              <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+          </fieldset>
+
+      </div>
+
+
+
+
+
+      <!--------------------------------Supervisor Request----------------------------------->
+
+      <div id="supervisorTicket" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-exclamation-circle"></i>  Supervisor Ticket</legend>
+
+              <select id="reason" class="dropdown">
+                  <option value="">-- Select reason --</option>
+                  <option value="review">Review</option>
+                  <option value="secondattempt">Second Attempt</option>
+                  <option value="soonerdate">Sooner Date Request</option>
+                  <option value="towerbuild"> Tower Build Inquiry</option>
+                  <option value="other">Other</option>
+              </select>
+
+
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+
+              <input type="text" id='contact' placeholder="Associated tickets" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prevtick' placeholder="Currently scheduled on MM/DD/YY" name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='prefer' placeholder="Zone " name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='contact' placeholder="Slot" name="" class="mainInputBox2" autocomplete="off">
+
+              <div> &nbsp; &nbsp; &nbsp; <input type="text" class="mainInputBox" id="supDate" placeholder="MM/DD/YY" type="text" autocomplete="off" /></div>
+              <input type="text" id='cbnumber' placeholder="Reason for sooner date" name="" class="mainInputBox2" autocomplete="off">
+
+
+              <label>
+                  <font color="#ffffff">
+                      <input type="radio" id='supervisorTimeAM' name="supervisorTime" value="supervisorTimeAM">
+                      <label for="supervisorTimeAM">8:00 AM -12:00 PM</label> <br>
+                      <input type="radio" id='supervisorTimePM' name="supervisorTime" value="supervisorTimePM">
+                      <label for="supervisorTimePM"> 1:00 PM -5:00 PM</label><br>
+              </label>
+              <br>
+
+
+
+
+
+
+          </fieldset>
+
+
+
+
+          <!--------------text area ------------------>
+
+
+
+
+
+          <fieldset>
+              <legend>Notes:</legend>
+              <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+          </fieldset>
+
+          <fieldset>
+              <div>
+
+                  Reminders:
+                  <ul>
+
+                      <li> Assign tickets to SFerris or MMcDonald</li>
+                      <li> Provide as many relevant details as you can</li>
+                  </ul>
+
+
+                  <br>
+
+                  Tips to De-Escalate:
+
+                  <ul>
+                      <li> Do not take it personally</li>
+                      <li> If you need to put the customer on hold, ask them and thank them when you return</li>
+                      <li> Demonstrate active listening</li>
+                      <li> Take ownership of the issue; don't deflect</li>
+                      <li> Document everything as much as possible</li>
+                      <li> Apologize and let the customer know what steps you are taking</li>
+
+                  </ul>
+
+
+              </div>
+
+          </fieldset>
+
+          <!--------------GENERATE TICKET ------------------>
+
+          <fieldset>
+              <legend>Ticket Notes:</legend>
+              <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+              Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+              <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+              <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+          </fieldset>
+
+      </div>
+
+
+      
+      <!----------------------------------Billing Ticket---------------------------------------->
+
+      <div id="billingTicket" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-money-bill-alt"></i>&nbsp;Billing Ticket</legend>
+
+
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+              <select id="reason" class="dropdown">
+                  <option value="">-- Reason for Call --</option>
+                  <option value="towerclimb"> Collect Site Survey Fee</option>
+
+                  <option value="mastinstall"> Collect Write Off</option>
+
+                  <option value="p2p"> Suspend Request</option>
+
+                  <!------------------James, can you add the drop down calendar  instead of the box/empty placehodler after Associated Tickets?----->
+                  <input type="text" id='prevtick' placeholder="Associated Tickets" name="" class="mainInputBox" autocomplete="off">
+                  <input type="text" id='prefer' placeholder="" name="" class="mainInputBox2" autocomplete="off">
+
+              </select>
+
+
+
+
+              <!--------------text area ------------------>
+
+              <fieldset>
+                  <legend>Notes:</legend>
+                  <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+
+
+
+              <!--------------GENERATE TICKET ------------------>
+
+
+              <fieldset>
+                  <legend>Ticket Notes:</legend>
+                  <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+                  Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+                  <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+                  <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+
+      </div>
+
+
+
+
+      <!---------------------------------Site Survey----------------------------------------->
+
+
+
+      <div id="siteSurvey" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-binoculars"></i>  Site Survey</legend>
+
+
+              <select id="rentOwn" class="dropdown">
+                  <option value="">-- Rent or Own? --</option>
+                  <option value="rent">Rent</option>
+                  <option value="own">Own</option>
+                  <label><input type="checkbox" id='tsRouter'> LLA uploaded? </label>
+                  <br>
+              </select>
+
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='prevtick' placeholder="Account number #?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" class="mainInputBox2" placeholder="Address?" required id="itAddress">
+
+              <input type="text" id='prevtick' placeholder="Associated tickets?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Billing ticket # " name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='prevtick' placeholder="GPS coordinates" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Where to test (backyard, side, etc)?" name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='prevtick' placeholder="Slot" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Zone" name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='prefer' placeholder="Important message" name="" class="mainInputBox" autocomplete="off">
+
+
+
+
+              <div><input type="text" class="mainInputBox2" id="ssDate" placeholder="MM/DD/YY" type="text" autocomplete="off" /></div>
+
+              <label>
+                  <font color="#ffffff">
+                      <input type="radio" id='timeAM'> 8:00 AM -12:00 PM<br>
+                      <input type="radio" id='timePM'> 1:00 PM -5:00 PM<br> <br>
+              </label>
+
+
+
+
+
+              Expectations:
+              <ul>
+                  <li>Site Survey is a $70 non-refundable fee that does NOT go toward install</li>
+                  <br />
+                  <li>Fee must first be collected by Billing prior to scheduling</li>
+                  <br />
+                  <li>Site Survey's are placed on the Service Call Scheduler</li>
+                  <br />
+                  <li>The customer understands that we do not set poles or trench</li>
+                  <br />
+                  <li>The technician will only be able to test at 20' from the ground </li>
+                  <br />
+                  <li>If additional height testing is needed, a Remote Tower Site Survey may be necessary</li>
+
+
+
+
+              </ul>
+              <label>Expectations Set?</label><input type="checkbox" required>
+
+
+              <!--------------text area ------------------>
+
+          </fieldset>
+
+          <fieldset>
+              <legend>Notes:</legend>
+              <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+          </fieldset>
+
+
+
+          <div>
+
+              <fieldset>
+
+                  <ul>
+
+                      <li> For the most up to date procedures, please check the Team Book <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Ticket%20Templates.one%7C19894b19-d036-4b3e-a670-8bdffdc69e16%2FResidential%20Site%20Survey%7Ca4767515-a6df-40f2-91d7-55a643d98469%2F%29">Residential Site Survey</a>
+                      <li> Click <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28FAQ%27s.one%7Cc98e480d-80e6-48ee-b81a-0161e9341322%2FPole%20Requirements%7C46f6166a-97d7-40f4-904d-366f20efb7ea%2F%29">Pole Requirements</a> for types of poles and other questions</li>
+
+
+                      </li>
+                      <br>
+                      <br>
+
+                      Reminders:
+                      <br>
+                      <br>
+
+                      <li> Site Survey's are to be placed on Service Scheduler</li>
+                      <li> This is a $70 non-refundable fee that does not go toward install costs</li>
+                      <li> Fee must be collected before scheduling</li>
+
+
+
+
+                  </ul>
+
+
+          </div>
+          </fieldset>
+
+
+          <!--------------GENERATE TICKET ------------------>
+
+          <fieldset>
+              <legend>Ticket Notes:</legend>
+              <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+              Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+              <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+              <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+          </fieldset>
+
+
+      </div>
+
+      <!--------------------------------Move Request----------------------------------->
+
+      <div id="Move" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-suitcase"></i>  Move</legend>
+
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+              <select id="reason" class="dropdown">
+                  <option value="">-- Reason for Call --</option>
+                  <option value="towerclimb"> Schedule Tower Climb</option>
+                  <option value="mastinstall"> Schedule Mast Install</option>
+                  <option value="p2p"> Schedule Point to Point</option>
+                  <option value="tripod"> Schedule 10' Tripod</option>
+                  <option value="other"> Other</option>
+
+
+                  <input type="text" id='prevtick' placeholder="Previous Install Ticket #" name="" class="mainInputBox" autocomplete="off">
+                  <input type="text" id='prefer' placeholder="Availability (Weekends, Days, etc) " name="" class="mainInputBox2" autocomplete="off">
+
+              </select>
+
+
+
+
+
+              <!--------------text area ------------------>
+
+              <fieldset>
+                  <legend>Notes:</legend>
+                  <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+
+
+
+              <!--------------GENERATE TICKET ------------------>
+
+              <fieldset>
+                  <legend>Ticket Notes:</legend>
+                  <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+                  Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+                  <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+                  <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+
+      </div>
+
+
+
+      <!-------------------------------Transfer Ticket--------------------------------------------->
+
+      <div id="Transfer" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-exchange-alt"></i>  Transfer</legend>
+
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='prevtick' placeholder="Personal or Managed RTR?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Ship RTR?" name="" class="mainInputBox2" autocomplete="off">
+              
+              <input type="text" id='prevtick' placeholder="Desired SSID | Password?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="M2M or 2YR" name="" class="mainInputBox2" autocomplete="off">
+            
+              <input type="text" id='prevtick' placeholder="PandaDoc uploaded?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Date of Transfer (Min. 48hrs)" name="" class="mainInputBox2" autocomplete="off">
+              
+        
+
+         <label style="color: #ff8000;"><input type="radio" value="remotetransfer" name="remoteTransfer">Remote Transfer (ERT)</label>
+
+              <label><input type="radio" value="remotetransfer" name="remoteTransfer">On-Site (Schedule Tech)</label>
+
+              <br><br><br><br>
+            
+        
+              <label><input type="checkbox" name="itAdtlCB" id='atZyxel'><font color="#ff8000"> Is the POE on-site?</font></label><br>
+              <label><input type="checkbox" name="itAdtlCB" id='atMikrotik'> Are the cables on-site?</label><br>
+              <label><input type="checkbox" name="itAdtlCB" id='atZyxel'><font color="#ff8000"> Ship Router? (only to address on file)</font></label><br>
+              <label><input type="checkbox" name="itAdtlCB" id='atMikrotik'> Is the customer aware of minimum 48r turn around?</label><br>
+              
+
+
+
+              </select>
+
+
+              <!--------------text area ------------------>
+
+              <fieldset>
+                  <legend>Notes:</legend>
+                  <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+
+
+
+
+              <!--------------GENERATE TICKET ------------------>
+
+              <fieldset>
+                  <legend>Ticket Notes:</legend>
+                  <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+                  Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+                  <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+                  <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+
+      </div>
+
+
+
+
+      <!-- **************************** Fiber Ticket **************************** -->
+
+      <div id="fiber" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-headset"></i> Fiber Ticket</legend>
+
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='prevtick' placeholder="Account Number" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Address?" name="" class="mainInputBox2" autocomplete="off">
+
+
+
+
+
+
+              <label><input type="radio" value="hudsonOaks" default name="fiberType" checked>Hudson Oaks</label>
+
+              <label style="color: #ff8000;"><input type="radio" value="patriotEstates" name="fiberType">Patriot Estates</label>
+
+              <label><input type="radio" value="cottonWood" name="fiberType">Cottonwood</label>
+
+              <label><input type="radio" value="crossRoads" name="fiberType">Crossroads</label><br />
+
+              <label style="color: #ff8000;"><input type="radio" value="eagleMountain" name="fiberType"> Eagle Mountain </label>
+
+
+
+
+              <select id="hudsonOaksFiberType" name="fiberTypeOption" class="dropdown fiberType">
+                  <option value="">-- Hudson Oaks --</option>
+                  <option value="Next15">Next25 $59.00</option>
+                  <option value="Next20">Next50 $69.00</option>
+                  <option value="Next25">Next100 $79.00 </option>
+                  <option value="Next35">Next300 $99.00</option>
+                  <option value="Next50">Next500 $109.00</option>
+                  <option value="Next50">Next1000 $119.00</option>
+              </select>
+
+              <select id="patriotEstatesFiberType" name="fiberTypeOption" class="dropdown fiberType">
+                  <option value="">-- Patriot Estates --</option>
+                  <option value="Next15">Next25 $59.00</option>
+                  <option value="Next20">Next50 $69.00</option>
+                  <option value="Next25">Next100 $79.00 </option>
+                  <option value="Next35">Next300 $99.00 </option>
+                  <option value="Next50">Next500 $109.00</option>
+                  <option value="Next50">Next1000 $119.00 </option>
+              </select>
+
+
+              <select id="cottonWoodFiberType" name="fiberTypeOption" class="dropdown fiberType">
+                  <option value="">-- Cottonwood --</option>
+                  <option value="Next15">Next25 $59.00</option>
+                  <option value="Next20">Next50 $69.00</option>
+                  <option value="Next25">Next100 $79.00 </option>
+                  <option value="Next35">Next300 $99.00 </option>
+                  <option value="Next50">Next500 $109.00</option>
+                  <option value="Next50">Next1000 $119.00</option>
+              </select>
+
+              <select id="eagleMountainFiberType" name="fiberTypeOption" class="dropdown fiberType">
+                  <option value="">-- Eagle Mountain --</option>
+                  <option value="Next15">Next100 $99.00</option>
+                  <option value="Next20">Next300 $119.00</option>
+                  <option value="Next25">Next500 $139.00 </option>
+                  <option value="Next35">Next1000 $159.00 </option>
+              
+              </select>
+
+
+
+              <select id="crossRoadsFiberType" class="dropdown fiberType">
+                  <option value="">-- Forest Hill at Cross Roads --</option>
+                  <option value="Next15">Next100 $99.00</option>
+                  <option value="Next20">Next300 $119.00</option>
+                  <option value="Next25">Next500 $139.00</option>
+                  <option value="Next35">Next1000 $159.00 </option>
+            
+              </select>
+
+
+
+              <button class="accordion"><i class="fas fa-plus-circle"></i> &nbsp; Additional Features</button>
+              <div class="panel">
+                  <br>
+
+                  <label><input type="checkbox" name="itAdtlCB" id='atZyxel'><font color="#ff8000"> Zyxel $6.99</font></label>
+                  <label><input type="checkbox" name="itAdtlCB" id='atMikrotik'> Mikrotik $0.00</label><br> <br>
+
+                  <label><input type="checkbox" name="itAdtlCB" id='athAP'><font color="#ff8000"> MT hAP $0.00</font></label>
+                  <label><input type="checkbox" name="itAdtlCB" id='atMesh'> Mesh Unit $3.99</label><br> <br>
+
+                  <label><input type="checkbox" name="itAdtlCB" id='atStatic'><font color="#ff8000"> Static IP $10.00 </font></label>
+                  <label><input type="checkbox" name="itAdtlCB" id='atVOIP'> VOIP $19.99</label><br> <br>
+
+                  <label><input type="checkbox" name="itAdtlCB" id='atLDrop'><font color="#ff8000"> Line Drop $50</font></label><br />
+              </div>
+
+
+              <input type="text" id='prevtick' placeholder="Install Cost?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Contract Length?" name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='prevtick' placeholder="Fiber Zone?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Slot?" name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='prevtick' placeholder="Coordinates" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Who Will be there (over 18yrs old?)" name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" class="textboxInput" id="itDate" placeholder="MM/DD/YY" type="text" autocomplete="off" />
+              <br><br>
+
+
+              <label>
+                  <font color="#ffffff">
+                      <input type="radio" id='installTimeAM' name="timeInstall" value="8:00 AM -12:00 PM">
+                      <label for="installTimeAM"> 8:00 AM -12:00 PM</label><br>
+                      <input type="radio" id='installTimePM' name="timeInstall" value="1:00 PM -5:00 PM">
+                      <label for="installTimePM"> 1:00 PM -5:00 PM</label> <br><br>
+              </label>
+
+          </fieldset>
+
+          <!--------------text area ------------------>
+
+          <fieldset>
+              <legend>Notes:</legend>
+              <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+          </fieldset>
+
+
+
+
+
+          <!--------------GENERATE TICKET ------------------>
+
+          <fieldset>
+              <legend>Ticket Notes:</legend>
+              <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+              Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+              <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+              <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+          </fieldset>
+
+      </div>
+
+
+      </fieldset>
+
+      <!---------------------------------Things to Know---------------------------------------------->
+
+
+      <div id="thingstoKnow" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-book-reader"></i>  Things to Know</legend>
+
+
+              For the most accurate and up to date information and up to date information, policies, and procedures,
+              please reference your
+
+              <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Office%20Knowledge.one%7C5c2003e2-75ed-4d66-b4a2-fbb9aaf43e56%2FOffice%20Locations%7C4409cdef-99ce-4935-a020-70fbea7047a6%2F%29">Team Book</a>
+
+
+              <ul>
+                  <big>Nextlink Information</big>
+                  <br>
+                  <br>
+
+
+                  <li>
+                      Hudson Oaks Location(Call Center): <br>
+                      Address: 95 Parker Oaks Lane, Hudson Oaks, TX 76087
+                      Phone Number: (855) 698-5465
+                  </li>
+                  <br>
+                  <br>
+
+
+                  <li>
+                      Fort Worth Office (Call Center):<br>
+                      Address: 6115 Camp Bowie Blvd, Fort Worth, TX 76116
+                      Phone Number: (855) 698-5465
+                  </li>
+                  <br>
+                  <br>
+
+                  <li>
+                      Nebraska Office Location: <br>
+                      Address: 605 E Norfolk Ave, Norfolk, NE 68701
+                  </li>
+                  <br>
+                  <br>
+
+
+                  <li>
+                      Oklahoma Office Location:<br>
+                      Address: 2901 N. Van Buren, Enid, OK 73701<br>
+
+
+
+
+              </ul>
+              <br><br>
+              <p>
+                  Call Center Information: <br><br><br>
+
+
+                  <big>Billing</big><br>
+                  Hours: Monday-Friday, 8 AM - 6 PM<br><br>
+                  Extension: 8889<br>
+                  Assign tickets to: KTrujillo<br><br> <br> <br>
+
+                  <big>Tech Support</big><br>
+                  Hours: Monday - Friday, 7 AM - 11 PM, Saturday - Sunday 7 AM - 10 PM<br>
+                  Extension: 8895<br><br>
+
+                  Support Manager: Dwight "JR" Belcher<br>
+                  Supervisors: Day - Tim Zwick<br>
+                  Night - Laurie Bishop<br>
+                  Weekend - Harrison Whitaker <br><br><br><br>
+                  <br>
+
+
+
+                  <big>New Applicants</big><br> 682-204-3226<br>
+
+                  If you receive a call from someone checking on the status of their application, you can cold transfer them to the recruitment office. Instruct the caller to leave a message if no one answers. <br><br>
+
+
+                  <big>Bad Driver</big><br>
+
+                  Apologize and thank for calling. Gather as much info as possible, such as vehicle type/number, time/location, and send an email to humanresources@tram.nxlink.com<br> <br> <br>
+
+
+
+                  <big>Non Call Center Inquiry</big><br>
+                  If someone calls in and requests to speak with another department or a specific individual not within the call center you will need to gather all of their information and send it IN AN EMAIL to JFlores and CWarren.   Examples: Vendors, someone requesting to speak with a upper management; Bill Baker, Steve Burks, etc. <br><br><br>
+
+
+
+
+
+              </p>
+
+              <div>
+                  <br>
+
+
+
+                  <!---------------ThingstoKnowAccordion 1------------->
+
+
+          </fieldset>
+
+
+
+
+
+          <!---------------endofThingstoKnowAccordion------------->
+
+
+
+
+
+          <div>
+
+              <fieldset>
+
+                  <legend><i class="fas fa-air-freshener"></i>Reference</legend>
+
+
+
+
+
+
+
+
+                  Please refer to <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Training%20and%20Refreshers.one%7C69454437-d786-46da-94da-4d54eec9ae5a%2FTips%20and%20Tricks%7Ce6f6ac01-6b43-4dc4-a1ec-e5d8564930b9%2F%29">here </a> in the Team Book for more Training and Refreshers <br> <br>
+
+
+                  Reminders:<br><br>
+                  <li>Always warm transfer between agents and departments</li><br><br>
+                  <li>Never give out tower names or locations</li><br><br>
+                  <li>Never guarantee speeds or plan availability</li><br><br>
+                  <li>Sooner date requests must be Supervisor approved</li><br><br>
+                  <li>Tower Host requests must be emailed to SFerris with contact info and coordinates</li><br><br>
+                  <li>Tower Builds must be made as a ticket and assigned to SFerris</li><br><br>
+                  <li>Masts must be approved and scheduled by Dispatch</li><br><br>
+                  <li>Poles over 20' require two technicians, must be scheduled by Dispatch</li><br><br>
+                  <li>10' Tripods require two technicians, must be scheduled by Dispatch</li><br><br>
+                  <li>Tower Climbs require two technicans, must be scheduled by Dispatch</li><br><br>
+                  <li>Plan upgrades must go through Tech Support</li><br><br>
+                  <li>New CX line drops are handled by Sales, $50; EXISTING CX line drops go to Tech Support, $100</li><br><br>
+                  <li>If a customer pays a write off and wishes to obtain services again, they will pay the full install fees, even if the equipment is still there</li><br><br>
+
+
+
+
+
+
+
+                  <!---------------ThingstoKnowAccordion 2------------->
+
+
+
+                  <button class="accordion"><i class="fas fa-plus-circle"></i> &nbsp; How do I?</button>
+                  <div class="panel">
+                      <br>
+
+                      <li>
+
+                          <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Sales%20Process.one%7C1bd9a0c5-f167-431a-934f-055d6ef50ea9%2FMoves%7C8f62f845-4351-4f09-82f8-119683481416%2F%29">How do I process a Move?</a><br>
+
+                      </li>
+
+
+                      <li>
+                          <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Sales%20Process.one%7C1bd9a0c5-f167-431a-934f-055d6ef50ea9%2FTransfer%7C28607a33-30b2-41c7-9cd0-ed6566e9b27c%2F%29">How do I process a Transfer?</a><br>
+                      </li>
+
+                      <li> <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28NEW%20%3B%20UPDATED%20PROCESS.one%7Cc0bb110c-4099-42be-ab64-f921a3e3402b%2FLine%20Drops%7Cf89cfc51-f772-42af-bc78-5ddc24cbf6c7%2F%29">How do I schedule a Line Drop?</a></li>
+
+                      <li><a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Ticket%20Templates.one%7C19894b19-d036-4b3e-a670-8bdffdc69e16%2FResidential%20Site%20Survey%7Ca4767515-a6df-40f2-91d7-55a643d98469%2F%29">How do I schedule a Site Survey?</a></li>
+                      <li><a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28NEW%20%3B%20UPDATED%20PROCESS.one%7Cc0bb110c-4099-42be-ab64-f921a3e3402b%2FBucket%20Truck%20Installs%7Cb36e9532-2007-488b-827b-ccf4b87a5446%2F%29">How do I schedule a Bucket Truck?</a></li>
+                      <li><a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Ticket%20Templates.one%7C19894b19-d036-4b3e-a670-8bdffdc69e16%2FDamage%20Claims%7C787c763e-c41c-49f1-a995-6d2bf45e0c32%2F%29">How do I submit a Damage Claim Ticket?</a></li>
+                      <li><a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Training%20and%20Refreshers.one%7C69454437-d786-46da-94da-4d54eec9ae5a%2FAppointment%20Queues%7C0b93dca6-6414-4c24-b066-2f180b2fa4e7%2F%29">How do I know which appointment queue to use in Billmax?</a></li>
+                      <li><a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Training%20and%20Refreshers.one%7C69454437-d786-46da-94da-4d54eec9ae5a%2FHow%20Our%20Internet%20Works%7C34c63f76-ac55-40a2-89ba-4021920e916f%2F%29">How do I explain how our internet works?</a></li>
+                      <li><a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28NEW%20%3B%20UPDATED%20PROCESS.one%7Cc0bb110c-4099-42be-ab64-f921a3e3402b%2FPoint%20to%20Points%7Cd64437c1-c96a-43f3-9bff-24c5d2fe2e8b%2F%29">How do I schedule a Pont to Point?</a></li>
+
+                      <li><a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28NEW%20%3B%20UPDATED%20PROCESS.one%7Cc0bb110c-4099-42be-ab64-f921a3e3402b%2FTower%20Climb%20Approval%7Cad3a9a9f-9669-4aa6-9c99-1b4d7b47e6f1%2F%29">How do I schedule a Tower Climb?</a></li>
+
+                  </div>
+                  <br><br>
+
+                  <button class="accordion"><i class="fas fa-plus-circle"></i> &nbsp; FAQ</button>
+                  <div class="panel">
+                      <br>
+                      <br>
+                      Please refer to the <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28FAQ%27s.one%7Cc98e480d-80e6-48ee-b81a-0161e9341322%2FFrequently%20Asked%20Questions%7C318ec3f4-e0ff-42eb-b71e-004bdee39191%2F%29"> Team Book</a> for a more comprehensive list of FAQs <br><br><br>
+                      Q: What frequencies do your towers emit?<br>
+                      A: 5Ghz<br><br><br>
+
+                      Q: What kind of router do I need? <br>
+                      A: We recommend a dual band router that is capable of pulling the speeds that you sign up for. It is also suggested to ensure the router has ample coverage for the square footage of your home<br><br><br>
+
+                      Q: How big is the dish?<br>
+                      A: About 12" in diameter<br><br><br>
+
+                      Q: How does weather affect these services?<br>
+                      A: Normal weather patterns typically do not affect our services. However, weather conditions such as; heavy rains, snow, or ice can potentially affect the services as they may prevent the radio waves from being transmitted or received<br><br><br>
+
+                      Q: Can I have two accounts on the same property?<br>
+                      A: Yes<br><br><br>
+
+
+
+              </fieldset>
+
+
+
+              </fieldset>
+
+
+          </div>
+
+          </fieldset>
+
+
+
+
+
+          <!---------------endofThingstoKnowAccordion------------->
+
+
+      </div>
+
+
+      </fieldset>
+
+
+      </div>
+
+
+      </div>
+
+
+
+      <!---------------------------------Damage Claim Ticket----------------------------------------->
+
+      <div id="damageClaim" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-exclamation-triangle"></i> Damage Claim</legend>
+
+
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+
+
+              <input type="text" id='prevtick' placeholder="Associated Tickets?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Damage Location? (roof, wall, etc?)" name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='prevtick' placeholder="State?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prevtick' placeholder="Zone?" name="" class="mainInputBox2" autocomplete="off">
+
+
+
+              Did you upload the requested images to Billmax?<br>
+              <label style="color: #ff8000;"><input type="radio" name="dcImg" value="Yes"> Yes</label>
+              <label><input type="radio" name="dcImg" vlaue="No"> No </label>
+              <label style="color: #ff8000;"><input type="radio" name="dcImg" value="N/A" checked> N/A</label>
+              <br><b>
+              
+            
+              (update this section with Damage Claim process and link)
+
+      
+
+
+
+
+
+      <!--------------text area ------------------>
+
+      <fieldset>
+          <legend>Notes:</legend>
+          <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br />
+      </fieldset>
+
+
+
+
+      <!--------------GENERATE TICKET ------------------>
+
+
+      <fieldset>
+          <legend>Ticket Notes:</legend>
+          <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+          Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+          <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+          <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+      </fieldset>
+    </div>
+
+      </div>
+
+      
+      <!------------------------------Tower Host Ticket--------------------------------------------->
+
+      <div id="towerHost" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-broadcast-tower"></i>&nbsp;&nbsp;Tower Host</legend>
+
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+
+
+
+              <input type="text" id='prevtick' placeholder="Address?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Coordinates? " name="" class="mainInputBox2" autocomplete="off">
+              <input type="text" id='prefer' placeholder="State(s)? " name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Any relevant tickets? " name="" class="mainInputBox2" autocomplete="off">
+
+
+
+
+
+              <!--------------text area ------------------>
+
+              <fieldset>
+                  <legend>Notes:</legend>
+                  <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+
+
+
+              <!--------------GENERATE TICKET ------------------>
+
+
+              <fieldset>
+                  <legend>Ticket Notes:</legend>
+                  <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+                  Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+                  <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+                  <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+
+      </div>
+
+
+      <!---------------Upgrade Request----------------->
+
+      <div id="upgradeRequest" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-money-check"></i>&nbsp;Upgrade Request</legend>
+
+
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+
+              <input type="text" id='contact' placeholder="Current Plan?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="New Plan?" name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='contact' placeholder="Support Ticket?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Signed PandaDoc?" name="" class="mainInputBox2" autocomplete="off">
+
+              </select>
+
+              <fieldset>
+                  <legend>Important Notes</legend><br>
+                  <textarea id='atNotes' class="textarea200" placeholder="Any relevant information?" ; "autocomplete=" off"></textarea>
+
+              </fieldset>
+
+      </div>
+
+
+
+
+      <!-----------------------------Tower Build--------------------------------------------->
+
+      <div id="towerSurvey" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-wifi"></i>&nbsp;Tower Site Survey</legend>
+
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+              <input type="text" id='prevtick' placeholder="Previous install attempt tickets?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Billing ticket? " name="" class="mainInputBox2" autocomplete="off">
+
+              <input type="text" id='prefer' placeholder="Coordinates of test site? " name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='prefer' placeholder="Location? (near barn, by pool, etc) " name="" class="mainInputBox2" autocomplete="off">
+
+              </select>
+
+
+
+              Expectations:
+              <ul>
+                  <li>Tower Site Survey is $200 and does go toward install costs </li>
+                  <br />
+                  <li>$200 fee must be first collected by billing</li>
+                  <br />
+                  <li>This is a remote analysis and service is not guaranteed until techs are on site to install</li>
+                  <br />
+                  <li>The customer is aware that installing to a tower will require two technicians and a $200 install fee</li>
+                  <br />
+
+                  <li>Nextlink does not build or supply the tower </li>
+                  <br />
+                  <li>If the customer is interested in having a tower built through a company we are partnered with, please discuss Tower Build expectations and create Supervisor Ticket under "Tower Build Inquiry" to SFerris</li>
+                  <br />
+                  <br />
+                  (I'm going to put a link to the Tower Build process here)
+                  <br />
+                  <br />
+
+                  IMPORTANT:
+                  <br />
+
+                  <li>Tower Site Surveys with the Bucket Truck can only be done with adjacent counties and MUST be requested and approved through Dispatch. The maximum height that this can be tested with is 50'</li>
+
+
+
+
+
+              </ul>
+              <label>Expectations Set?</label><input type="checkbox" required>
+
+
+              <!--------------text area ------------------>
+
+              <fieldset>
+                  <legend>Notes:</legend>
+                  <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+
+
+
+              <!--------------GENERATE TICKET ------------------>
+
+
+              <fieldset>
+                  <legend>Ticket Notes:</legend>
+                  <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+                  Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+                  <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+                  <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+      </div>
+
+
+
+      <!------------------------------VoIP Ticket--------------------------------------------->
+
+      <div id="voip" class="tabcontent">
+          <fieldset class="fieldsetTop">
+              <legend><i class="fas fa-phone"></i>  VoIP</legend>
+
+              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+              <select id="reason" class="dropdown">
+                  <option value="">-- Reason for Call --</option>
+                  <option value="towerclimb"> Add VOIP</option>
+                  <option value="mastinstall"> VOIP Questions</option>
+                  <option value="other"> Other</option>
+
+
+                  <input type="text" id='prevtick' placeholder="Associated Ticket's?" name="" class="mainInputBox" autocomplete="off">
+                  <input type="text" id='prefer' placeholder="Availability (Weekends, Days, etc) " name="" class="mainInputBox2" autocomplete="off">
+
+                  <div>
+                      <button class="accordion"><i class="fas fa-plus-circle"></i> &nbsp; VOIP Options</button>
+                      <div class="panel">
+                          <br>
+                          <label><input type="checkbox" id='installopt'> Residential Select $24.95</label>
+                          <label><input type="checkbox" id='installopt2'><font color="#ff8000"> Residential Standard $19.95</font></label><br>
+                          <label><input type="checkbox" id='tsQueuesBad'> Personal Fax $9.99</label>
+                          <label><input type="checkbox" id='tsQueuesBad'><font color="#ff8000"> Standalone Mailbox $2.99</font> </label><br>
+
+                      </div>
+
+              </select>
+
+
+
+
+
+              <!--------------text area ------------------>
+
+              <fieldset>
+                  <legend>Notes:</legend>
+                  <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+
+
+
+
+
+
+
+
+              <!--------------GENERATE TICKET ------------------>
+
+              <fieldset>
+                  <legend>Ticket Notes:</legend>
+                  <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+                  Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
+                  <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
+                  <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
+<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+              </fieldset>
+
+
+      </div>
+
+
+
+
+      <!-- ***********************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+
+
+                                                Javascript Script
+
+
+
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+     **************************** */ -->
+      <!-- **************************** Bob's Javascript Script **************************** */ -->
+
+      <script type="text/javascript">
+          function openTab(evt, tabName) {
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent");
+              for (i = 0; i < tabcontent.length; i++) {
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablinks");
+              for (i = 0; i < tablinks.length; i++) {
+                  tablinks[i].className = tablinks[i].className.replace(" active", "");
+              }
+              document.getElementById(tabName).style.display = "block";
+              evt.currentTarget.className += " active";
+          }
+          // Get the element with id="defaultOpen" and click on it
+          document.getElementById("defaultOpen").click();
+
+
+
+
+
+
+      </script>
+
+      <!-- **************************** Accordion Script ****************************  -->
+
+      <script>
+          var acc = document.getElementsByClassName("accordion");
+          var i;
+
+          for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function () {
+                  this.classList.toggle("active");
+                  var panel = this.nextElementSibling;
+                  if (panel.style.display === "block") {
+                      panel.style.display = "none";
+                  } else {
+                      panel.style.display = "block";
+                  }
+              });
+          }
+
+
+
+      </script>
+
+      <!-- David's Js -->
+      <script type="text/javascript" src="files/js/main.js?v=1.0"></script> <!-- JS scripts for all pages-->
+      <script type="text/javascript" src="files/js/copy.js?v=1.0"></script> <!-- JS script for copy function and related event listeners-->
+      <script type="text/javascript" src="files/js/fiber.js?v=1.0"></script>
+
+  </article>
+</section>
+</body>
+</html>
+<html><head><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8"><meta name="Robots" content="NOINDEX " /></head><body></body>
+                <script type="text/javascript">
+                 var gearPage = document.getElementById('GearPage');
+                 if(null != gearPage)
+                 {
+                     gearPage.parentNode.removeChild(gearPage);
+                     document.title = "Error";
+                 }
+                 </script>
+                 </html>
