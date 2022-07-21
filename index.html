@@ -198,6 +198,8 @@
                           <div>
                               <label for="atRouter">Manged Router? ($6.99/Month)</label>
                               <input type="checkbox" id="atRouter" name="atRouter" autocomplete="off"><br>
+                              <label for="atMesh">Manged Router? ($6.99/Month)</label>
+                              <input type="checkbox" id="atMesh" name="atMesh" autocomplete="off"><br>
                               <br><br>
                               <bold style="font-weight: bold;"> TriPod Options:</bold> <br><br>
                               <label> <input type="radio" name="itTri" price="5.00" value="tri3">3' Tipod $5.00 </label>
@@ -367,8 +369,8 @@
 
         <select id="siReason" class="dropdown">
             <option value="">-- Reason for Call --</option>
-            <option value="Tower Climb"> Inquire about new service</option>
-            <option value="Mast Install"> Pending tower status</option>
+            <option value="New Service"> Inquire about new service</option>
+            <option value="Pending Tower"> Pending tower status</option>
             <option value="General Questions"> General questions</option>
 
             <option value="Other"> Other</option>
@@ -414,28 +416,26 @@
 <!--------------------------------Call Center Ticket------------------------------------------>
 
       <div id="callCenter" class="tabcontent">
+        <form id="ccTicketForm">
         <fieldset class="fieldsetTop">
-            <legend><i class="fas fa-phone-volume"></i>&nbsp;Billing</legend>
+            <legend><i class="fas fa-phone-volume"></i>&nbsp;Call Center Ticket</legend>
 
 
-            <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
-            <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+            <input type="text" id='ccContact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+            <input type="text" id='ccNumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+            <input type="text" id="ccCallId" placeholder="UJET Call Id (required)" name="" class="textboxInput" autocomplete="off">
 
-            <select id="reason" class="dropdown">
-                <option value="">-- Reason for Call --</option>
-                <option value="towerclimb"> Collect Site Survey Fee</option>
-                <option value="mastinstall"> Collect Past Due</option>
-                <option value="p2p"> Collect Write Off</option>
-                <option value="tripod"> Make Payment</option>
-                <option value="other"> Credit Request</option>
-                <option value="other"> Change Payment Method</option>
-                <option value="other"> Other</option>
-
-
-                <input type="text" id='prevtick' placeholder="Associated Tickets" name="" class="mainInputBox" autocomplete="off">
-                <input type="text" id='prefer' placeholder="Date" name="" class="mainInputBox2" autocomplete="off">
-
+            <select id="ccDepartment" class="dropdown">
+                <option value="">-- Pick Department --</option>
+                <option value="Tech Support">Tech Support</option>
+                <option value="Billing">Billing</option>
             </select>
+            <select name="ccReason" id="ccReason" class="dropdown">
+                <option value="">-- Reason For Call --</option>
+            </select>
+
+                <input type="text" id='ccPrevTick' placeholder="Associated Tickets" name="" class="mainInputBox" autocomplete="off">
+                <!-- <input type="text" id='ccPrefer' placeholder="Date" name="" class="mainInputBox2" autocomplete="off"> -->
         </fieldset>
 
 
@@ -446,7 +446,7 @@
 
         <fieldset>
             <legend>Notes:</legend>
-            <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+            <textarea id='ccTicketNote' class="textarea200" autocomplete="off"></textarea><br>
         </fieldset><br>
         <fieldset>
             Reminders:<br><br><br>
@@ -455,7 +455,7 @@
             <li> Billing Hours: Monday-Friday, 8AM-6PM</li><br>
             <li>Site Survey Fee's are $70 + tax</li><br>
 
-            <li>Assign tickets to KTrujillo</li><br>
+            <li>Assign tickets to Round Robin</li><br>
             <li>
                 If there will be lapse in service due to moving, please include relevant dates in notes.  Please refer to <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Sales%20Process.one%7C1bd9a0c5-f167-431a-934f-055d6ef50ea9%2FMoves%7C8f62f845-4351-4f09-82f8-119683481416%2F%29">Team Book > Moves</a> for more information<br><br>
             </li>
@@ -464,67 +464,124 @@
         </fieldset>
         <br>
 
-        <!----Tech Support------------->
-        <fieldset>
-            <legend><i class="fas fa-phone-volume"></i>&nbsp;Tech Support</legend>
-            <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
-            <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
-
-            <select id="reason" class="dropdown">
-                <option value="">-- Reason for Call --</option>
-                <option value="towerclimb"> Plan Upgrade</option>
-                <option value="mastinstall"> Authenticate Equipment</option>
-                <option value="p2p"> Troubleshoot</option>
-                <option value="tripod"> General Questions</option>
-
-
-                <input type="text" id='prevtick' placeholder="Associated Tickets" name="" class="mainInputBox" autocomplete="off">
-                <input type="text" id='prefer' placeholder="Date" name="Date" class="mainInputBox2" autocomplete="off">
-
-
-        </fieldset>
-
-
-        <!--------------text area ------------------>
-
-        <fieldset>
-            <legend>Notes:</legend>
-            <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
-        </fieldset><br>
-
-
-        <fieldset>
-
-            Reminders:<br><br><br>
-
-            Please refer to <a style="color: #99e6ff;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28VoIP-Billing-Support.one%7Cf47e653a-b5c5-407b-bf1e-d8fd035eef13%2FSupport%7C88f6eb52-a331-4da3-92fb-1b717a1b8097%2F%29">Team Book > Support</a> for the most up to date information<br><br>
-
-            <li>Support Hours: Monday - Friday, 7 AM to 10 PM; Saturday - Sunday 9AM to 9 PM</li><br>
-            <li>Ticket Assignment: Monday-Friday 7A-4P, VJohnson; 1 PM - 10 PM, MMeraco; Weekends, HWhitaker </li><br>
-            <li>If call queue is backed up, offer to make callback ticket for customer and provide them with ticket number</li><br>
-
-
-        </fieldset>
-
-
-
 
         <!--------------GENERATE TICKET ------------------>
 
 
         <fieldset>
             <legend>Ticket Notes:</legend>
-            <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
-            Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
-            <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
-            <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
-<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
+            <button class="generateNote" type="submit"><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+            Subject Line: <button class="btn-copy" id="cc-sub-btn">COPY</button><br>
+            <input type="text" class="textboxInput" id='ccSubject' autocomplete="off"></textarea><br>
+            <div>Ticket Display: <button class="btn-copy" id="cc-bod-btn">COPY</button></div>
+            <textarea id='ccTicket' class="textarea200" autocomplete="off"></textarea><br>
         </fieldset>
-
+    </form>
     </div>
 
 
+      <!--------------------------------Supervisor Request----------------------------------->
 
+      <div id="supervisorTicket" class="tabcontent">
+        <form id="srTicketForm">
+        <fieldset class="fieldsetTop">
+            <legend><i class="fas fa-exclamation-circle"></i>  Supervisor Ticket</legend>
+
+            <select id="srReason" class="dropdown">
+                <option value="">-- Select reason --</option>
+                <option value="srReview">Review</option>
+                <option value="srSecondattempt">Second Attempt</option>
+                <option value="srSoonerdate">Sooner Date Request</option>
+                <option value="srTowerbuild"> Tower Build Inquiry</option>
+                <option value="srOther">Other</option>
+            </select>
+
+
+            <input type="text" id='srContact' placeholder="Who is calling?" required name="" class="mainInputBox" autocomplete="off">
+            <input type="text" id='srCbnumber' placeholder="Best callback number?" required name="" class="mainInputBox2" autocomplete="off">
+
+
+            <input type="text" id='srPrevTick' placeholder="Associated tickets" name="" class="mainInputBox" autocomplete="off">
+            <input type="text" id='srCallId' placeholder="UJET Call Id (required)" required name="" class="mainInputBox2" autocomplete="off">
+
+            <input type="text" id='srSsvReason' placeholder="Reason for sooner date, if applicable" name="" class="mainInputBox" autocomplete="off">
+
+
+            <!-- <label>
+                <font color="#ffffff">
+                    <input type="radio" id='supervisorTimeAM' name="supervisorTime" value="supervisorTimeAM">
+                    <label for="supervisorTimeAM">8:00 AM -12:00 PM</label> <br>
+                    <input type="radio" id='supervisorTimePM' name="supervisorTime" value="supervisorTimePM">
+                    <label for="supervisorTimePM"> 1:00 PM -5:00 PM</label><br>
+            </label> -->
+            <br>
+
+
+
+
+
+
+        </fieldset>
+
+
+
+
+        <!--------------text area ------------------>
+
+
+
+
+
+        <fieldset>
+            <legend>Notes:</legend>
+            <textarea id='srTicketNote' class="textarea200" autocomplete="off"></textarea><br>
+        </fieldset>
+
+        <fieldset>
+            <div>
+
+                Reminders:
+                <ul>
+
+                    <li> Assign tickets to SFerris or KKeenie</li>
+                    <li> Provide as many relevant details as you can</li>
+                </ul>
+
+
+                <br>
+
+                Tips to De-Escalate:
+
+                <ul>
+                    <li> Do not take it personally</li>
+                    <li> If you need to put the customer on hold, ask them and thank them when you return</li>
+                    <li> Demonstrate active listening</li>
+                    <li> Take ownership of the issue; don't deflect</li>
+                    <li> Document everything as much as possible</li>
+                    <li> Apologize and let the customer know what steps you are taking</li>
+
+                </ul>
+
+
+            </div>
+
+        </fieldset>
+
+        <!--------------GENERATE TICKET ------------------>
+
+        <fieldset>
+            <legend>Ticket Notes:</legend>
+            <button class="generateNote" type="submit"><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+            Subject Line: <button class="btn-copy" id="sr-sub-btn">COPY</button><br>
+            <input type="text" class="textboxInput" id='srSubject' autocomplete="off"></textarea><br>
+            <div>Ticket Display: <button class="btn-copy" id="sr-bod-btn" >COPY</button></div>
+<textarea id='srTicket' class="textarea200" autocomplete="off"></textarea><br>
+        </fieldset>
+    </form>
+    </div>
+
+
+    
 
       <!-- **************************** Dispatch Ticket **************************** -->
 
@@ -584,111 +641,7 @@
 
 
 
-      <!--------------------------------Supervisor Request----------------------------------->
 
-      <div id="supervisorTicket" class="tabcontent">
-          <fieldset class="fieldsetTop">
-              <legend><i class="fas fa-exclamation-circle"></i>  Supervisor Ticket</legend>
-
-              <select id="reason" class="dropdown">
-                  <option value="">-- Select reason --</option>
-                  <option value="review">Review</option>
-                  <option value="secondattempt">Second Attempt</option>
-                  <option value="soonerdate">Sooner Date Request</option>
-                  <option value="towerbuild"> Tower Build Inquiry</option>
-                  <option value="other">Other</option>
-              </select>
-
-
-              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
-              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
-
-
-              <input type="text" id='contact' placeholder="Associated tickets" name="" class="mainInputBox" autocomplete="off">
-              <input type="text" id='prevtick' placeholder="Currently scheduled on MM/DD/YY" name="" class="mainInputBox2" autocomplete="off">
-
-              <input type="text" id='prefer' placeholder="Zone " name="" class="mainInputBox" autocomplete="off">
-              <input type="text" id='contact' placeholder="Slot" name="" class="mainInputBox2" autocomplete="off">
-
-              <div> &nbsp; &nbsp; &nbsp; <input type="text" class="mainInputBox" id="supDate" placeholder="MM/DD/YY" type="text" autocomplete="off" /></div>
-              <input type="text" id='cbnumber' placeholder="Reason for sooner date" name="" class="mainInputBox2" autocomplete="off">
-
-
-              <label>
-                  <font color="#ffffff">
-                      <input type="radio" id='supervisorTimeAM' name="supervisorTime" value="supervisorTimeAM">
-                      <label for="supervisorTimeAM">8:00 AM -12:00 PM</label> <br>
-                      <input type="radio" id='supervisorTimePM' name="supervisorTime" value="supervisorTimePM">
-                      <label for="supervisorTimePM"> 1:00 PM -5:00 PM</label><br>
-              </label>
-              <br>
-
-
-
-
-
-
-          </fieldset>
-
-
-
-
-          <!--------------text area ------------------>
-
-
-
-
-
-          <fieldset>
-              <legend>Notes:</legend>
-              <textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
-          </fieldset>
-
-          <fieldset>
-              <div>
-
-                  Reminders:
-                  <ul>
-
-                      <li> Assign tickets to SFerris or MMcDonald</li>
-                      <li> Provide as many relevant details as you can</li>
-                  </ul>
-
-
-                  <br>
-
-                  Tips to De-Escalate:
-
-                  <ul>
-                      <li> Do not take it personally</li>
-                      <li> If you need to put the customer on hold, ask them and thank them when you return</li>
-                      <li> Demonstrate active listening</li>
-                      <li> Take ownership of the issue; don't deflect</li>
-                      <li> Document everything as much as possible</li>
-                      <li> Apologize and let the customer know what steps you are taking</li>
-
-                  </ul>
-
-
-              </div>
-
-          </fieldset>
-
-          <!--------------GENERATE TICKET ------------------>
-
-          <fieldset>
-              <legend>Ticket Notes:</legend>
-              <button class="generateNote" onclick='javascript:towerHostFunction();'><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
-              Subject Line: <button class="btn-copy" onclick="thcopySubject()">COPY</button><br>
-              <input type="text" class="textboxInput" id='thSubject' autocomplete="off"></textarea><br>
-              <div>Ticket Display: <button class="btn-copy" onclick="thcopyTicket()">COPY</button></div>
-<textarea id='thTicket' class="textarea200" autocomplete="off"></textarea><br>
-          </fieldset>
-
-      </div>
-
-
-      
       <!----------------------------------Billing Ticket---------------------------------------->
 
       <div id="billingTicket" class="tabcontent">

@@ -184,7 +184,7 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     const time = ' - ' + $("input[name='timeInstall']:checked").val() + '\n';
     const agent = $("#agent").val().toUpperCase();
     const notes = $("#atNotes").val();
-    const towers = " - Towers Reviewed: " +  $("#towersReviewed").val() + " \n";
+    const towers = $("#towersReviewed").val() ? " - Towers Reviewed: " +  $("#towersReviewed").val() + " \n" : '';
     
     // Generate and append subject to DOM
     let subject = apptType +  ' | ' + $("#atDate").val() + ' | ' + time + ' | ' + zone
@@ -260,7 +260,7 @@ $("#salesInquiryForm").on('submit', (e) => {
   const notes = $("#siTicket").val();
 
   $("#siSubject").val(`Sales Inquiry | ${reason}`)
-  body = `#### ${$("#siSubjet").val()} ####\n` +
+  body = `#### ${reason} ####\n` +
   `Who Called: ${name}\n` +
   `Best Callback: ${number}` + 
   `Reason: ${reason}\n` +
@@ -272,3 +272,86 @@ $("#salesInquiryForm").on('submit', (e) => {
   $("#siBody").val(body)
 })
 
+const departments = {
+  "Tech Support" : [
+    "New Technical Issue", "Known Technical Issue", "Upgrade Verification",'Other'
+  ],
+  "Billing" : [
+    "Collect Site Survey Fee",
+    "Collect Past Due",
+    "Collect Write Off",
+    "Make Payment",
+    "Credit Request",
+    "Change Payment Method",
+    "Other"
+  ]
+}
+
+$("#ccDepartment").on("change", (e)=>{
+  e.preventDefault()
+  const department = $("#ccDepartment").val();
+  if(!department){
+    return alert("Please Select a Department")
+  }
+  const deptList = departments[department]
+  $("#ccReason").empty()
+  for(let dept of deptList){
+    $("#ccReason").append(`<option value="${dept}">${dept}</option>\n`)
+  }
+});
+
+
+$("#ccTicketForm").on("submit", (e)=>{
+  e.preventDefault();
+  const name = $("#ccContact").val();
+  const number = $("#ccNumber").val();
+  const callId = $("#ccCallId").val();
+  const department = $("#ccDepartment").val();
+  const reason = $("#ccReason").val();
+  if(!department || !reason){
+    return alert("Please Select Department and Reason")
+  }
+  const prevTicket = $("#ccPrevTick").val();
+  const preferredTime = $("#ccPrefer").val();
+  const note = $("#ccTicketNote").val();
+  $("#ccSubject").val(department + ' | ' + reason);
+  const body = `### Call Center | ${department} ###\n` +
+  `Name: ${name}\n` + 
+  `Best Callback: ${number}\n` +
+  `UJET Call ID : <<${callId}>>\n` +
+  `Department Calling For: ${department}\n` +
+  `Reason For Call: ${reason}\n` +
+  `Associated Tickets: ${prevTicket}\n` +
+  `Availability: ${preferredTime}\n` +
+  `Notes: \n\n${note}`;
+
+  $("#ccTicket").val(body)
+  
+})
+
+
+
+// Supervisor Ticket Generation
+
+$("#srTicketForm").on('submit', (e)=>{
+  e.preventDefault();
+
+  const reason = $("#srReason").val();
+  const name = $("#srContact").val();
+  const number = $("#srCbnumber").val();
+  const prevTick = $("#srPrevTick").val();
+  const callId = $("#srCallId").val();
+  const reasonSsv = $("#srSsvReason").val();
+  const note = $("#srTicketNote").val();
+
+  $("#srSubject").val(`Supervisor Request | ${reason}`)
+  const body = `##### Supervisor Request | ${reason} ####\n` +
+  `Who's Calling: ${name}\n` +
+  `Best Callback: ${number}\n` +
+  `UJET Call ID : <<${callId}>>\n` +
+  `Previous associated Tickets: ${prevTick}\n` +
+  (reasonSsv ? `Reason For Sooner Service: ${reasonSsv}\n` : '') +
+  `Notes: \n ${note}`;
+
+  $("#srTicket").val(body)
+})
