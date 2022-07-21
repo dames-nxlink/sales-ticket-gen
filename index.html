@@ -34,6 +34,11 @@
       $( function() {
         $( "#supDate" ).datepicker({dateFormat: "m-d-y", changeMonth: true, changeYear: true,});
       } );
+
+      //Date Textbox to Datepicker jQuery
+      $( function() {
+        $( "#ccApptDate" ).datepicker({dateFormat: "m-d-y", changeMonth: true, changeYear: true,});
+      } );
     </script>
 
     <!-- Update the v=Number anytime you make changes, so there is no cache issues -->
@@ -429,13 +434,14 @@
                 <option value="">-- Pick Department --</option>
                 <option value="Tech Support">Tech Support</option>
                 <option value="Billing">Billing</option>
+                <option value="Dispatch">Dispatch</option>
             </select>
             <select name="ccReason" id="ccReason" class="dropdown">
                 <option value="">-- Reason For Call --</option>
             </select>
 
                 <input type="text" id='ccPrevTick' placeholder="Associated Tickets" name="" class="mainInputBox" autocomplete="off">
-                <!-- <input type="text" id='ccPrefer' placeholder="Date" name="" class="mainInputBox2" autocomplete="off"> -->
+                <input type="text" id='ccApptDate' placeholder="Appointment Date (if applicable)" name="" class="mainInputBox2" autocomplete="off">
         </fieldset>
 
 

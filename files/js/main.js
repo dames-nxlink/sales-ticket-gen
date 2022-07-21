@@ -284,6 +284,14 @@ const departments = {
     "Credit Request",
     "Change Payment Method",
     "Other"
+  ],
+  "Dispatch" : [
+    "Inquiry",
+    "Reschedule",
+    "Same day",
+    "Schedule date",
+    "Sooner date",
+    "Supervisor request"
   ]
 }
 
