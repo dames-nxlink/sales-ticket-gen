@@ -58,6 +58,9 @@
 	  <button class="tablinks buttonMenu" onclick="openTab(event, 'salesInquiry')" id="defaultOpen"><i class="fas fa-money-check"></i> Sales Inquiry Ticket</button>
       <button class="tablinks buttonMenu" onclick="openTab(event, 'callCenter')" id="defaultOpen"><i class="fas fa-phone-volume"></i> Call Center Ticket</button>
       <button class="tablinks buttonMenu" onclick="openTab(event, 'supervisorTicket')" id="defaultOpen"><i class="fas fa-exclamation-circle"></i>  Supervisor Ticket</button>
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'moveTransfer')" id="defaultOpen"><i class="fas fa-suitcase"></i>  Move/Transfer</button>
+      <a style="color: white;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Office%20Knowledge.one%7C210e89de-b4df-4ae4-9732-84ff29075814%2F%29&wdorigin=717"
+        target=”_blank”><button class="tablinks buttonMenu"><i class="fas fa-binoculars"></i> Team Notebook</button></a>
 
       <!-- <button class="tablinks buttonMenu" onclick="openTab(event, 'dispatchTicket')" id="defaultOpen"><i class="fas fa-headset"></i>  Dispatch Ticket</button>
 	  <button class="tablinks buttonMenu" onclick="openTab(event, 'siteSurvey')" id="defaultOpen"><i class="fas fa-binoculars"></i> Site Survey</button>
@@ -101,6 +104,13 @@
                       <option value="install">Installation</option>
                       <option value="siteSurvey">Site Survey</option>
                   </select>
+
+                  <label name="RemoteTransferOptions" for="atRemoteTransfer"> Attempting Remote Transfer?</label>
+                  <input type="checkbox" id="atRemoteTransfer" name="RemoteTransferOptions"><br>
+                  <label name="RemoteTransferOptions" for="atOldAccountAgreed">Previous Account Holder Consent?</label>
+                  <input type="checkbox" id="atOldAccountAgreed" name="RemoteTransferOptions">
+                  <input name="RemoteTransferOptions" id="atOldAccount" type="text" class="mainInputBox" placeholder="Old Account Number">
+
                   <select id="rentOwn" class="dropdown">
                       <option value="">-- Rent or Own? --</option>
                       <option value="rent">Rent</option>
@@ -833,7 +843,7 @@
 
       <!--------------------------------Move Request----------------------------------->
 
-      <div id="Move" class="tabcontent">
+      <div id="moveTransfer" class="tabcontent">
           <fieldset class="fieldsetTop">
               <legend><i class="fas fa-suitcase"></i>  Move</legend>
 

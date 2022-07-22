@@ -62,7 +62,13 @@ $("input[name='itMastType']").on('click', ()=>{
 })
 
 
-
+// Handle show/hide on remote transfer options
+$("[name='RemoteTransferOptions']").hide()
+$("#apptType").on('change', (e)=>{
+  e.preventDefault()
+  console.log("hi")
+  $("#apptType").val() == 'install' ? $("[name='RemoteTransferOptions']").show() : $("[name='RemoteTransferOptions']").hide()
+})
 
 
 // Stores plan pricing, used for ticket generation and to fill html, must be edited when prices change
@@ -186,6 +192,11 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     const agent = $("#agent").val().toUpperCase();
     const notes = $("#atNotes").val();
     const towers = $("#towersReviewed").val() ? " - Towers Reviewed: " +  $("#towersReviewed").val() + " \n" : '';
+    const transferInfo = 
+    `Attempting Remote Transfer: ${$("#atRemoteTransfer").prop('checked')}\n` +
+    `Previous Account Holder has consented: ${$("#atOldAccountAgreed").prop('checked')}\n` +
+    `Old Account Number: ${$("#atOldAccount").val() ? $("#atOldAccount").val() : "Agent did not include"}\n`
+    
     
     // Generate and append subject to DOM
     let subject = apptType +  ' | ' + $("#atDate").val() + ' | ' + time + ' | ' + zone
@@ -200,6 +211,7 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     `Address: ${address}\n` +
     `UJET Call ID : <<${atCallId}>>\n`+
     `Account# : ${accNum}\n`+
+    $("#atRemoteTransfer").prop('checked') ? transferInfo : `` +
     `Zone : ${zone}\n`+
     `Important Messages: ${msg}\n`+
     `Rent/Own: ${rentOwn} | LLA: ${llaNote}\n\n\n`+
