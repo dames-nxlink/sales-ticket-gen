@@ -384,5 +384,10 @@ $("#srTicketForm").on('submit', (e)=>{
 })
 
 $("#upgradeRequestForm").on('submit', ()=>{
-  const name = $("#")
+  const name = $("#urContact").val();
+  const number = $("#urCbnumber").val();
+  const currPlan = $("#urCurrPlan").val();
+  const newPlan = $("#urNewPlan").val();
+  const sptTicket = $("#urSupportTicket").val();
+  const panda = $("#urPanda").prop('checked')
 })
