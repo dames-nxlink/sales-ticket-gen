@@ -56,9 +56,9 @@
       <img src="files/images/nextlink-logo.png" alt="Nextlink" height="25px" style="padding-bottom: 0px;" />
       <button class="tablinks buttonMenu" onclick="openTab(event, 'appointmentTicket')" id="defaultOpen"><i class="fas fa-clipboard-check"></i>  Appointment Ticket</button>
 	  <button class="tablinks buttonMenu" onclick="openTab(event, 'salesInquiry')" id="defaultOpen"><i class="fas fa-money-check"></i> Sales Inquiry Ticket</button>
-      <button class="tablinks buttonMenu" onclick="openTab(event, 'callCenter')" id="defaultOpen"><i class="fas fa-phone-volume"></i> Call Center Ticket</button>
-      <button class="tablinks buttonMenu" onclick="openTab(event, 'supervisorTicket')" id="defaultOpen"><i class="fas fa-exclamation-circle"></i>  Supervisor Ticket</button>
-      <button class="tablinks buttonMenu" onclick="openTab(event, 'moveTransfer')" id="defaultOpen"><i class="fas fa-suitcase"></i>  Move/Transfer</button>
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'callCenter')" id="defaultOpen"><i class="fas fa-phone-volume"></i> Call Center <br>Ticket</button>
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'supervisorTicket')" id="defaultOpen"><i class="fas fa-exclamation-circle"></i>  Supervisor Request Ticket</button>
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'upgradeRequest')" id="defaultOpen"><i class="fas fa-phone"></i> Upgrade Requests</button>
       <a style="color: white;" href="https://nxlink.sharepoint.com/teams/sales/_layouts/15/Doc.aspx?sourcedoc={616e24cd-5ac8-4cd0-829a-1513aa8e255b}&action=view&wd=target%28Office%20Knowledge.one%7C210e89de-b4df-4ae4-9732-84ff29075814%2F%29&wdorigin=717"
         target=”_blank”><button class="tablinks buttonMenu"><i class="fas fa-binoculars"></i> Team Notebook</button></a>
 
@@ -71,8 +71,8 @@
 	  <button class="tablinks buttonMenu" onclick="openTab(event, 'damageClaim')" id="defaultOpen"><i class="fas fa-exclamation-triangle"></i> Damage Claim Ticket</button>
 	  <button class="tablinks buttonMenu" onclick="openTab(event, 'towerHost')" id="defaultOpen"><i class="fas fa-broadcast-tower"></i> Tower Host</button>
 	  <button class="tablinks buttonMenu" onclick="openTab(event, 'towerSurvey')" id="defaultOpen"><i class="fas fa-wifi"></i> Tower Site Survey/Tower Build</button>
-      <button class="tablinks buttonMenu" onclick="openTab(event, 'voip')" id="defaultOpen"><i class="fas fa-phone"></i> VOIP</button>
-      <button class="tablinks buttonMenu" onclick="openTab(event, 'upgradeRequest')" id="defaultOpen"><i class="fas fa-phone"></i> Upgrade Requests</button> -->
+      <button class="tablinks buttonMenu" onclick="openTab(event, 'voip')" id="defaultOpen"><i class="fas fa-phone"></i> VOIP</button> -->
+      
 
 
 
@@ -96,7 +96,7 @@
 
                   <input type="text" class="mainInputBox" placeholder="Who's Calling?" required id="atName">
                   <input type="text" class="mainInputBox2" placeholder="Address" required id="AtAddress">
-                  <input type="text" id="atCallId" placeholder="UJET Call ID (required)" name="callId" class="textboxInput" autocomplete="off" required>
+                  <input type="number" id="atCallId" placeholder="UJET Call ID (required)" name="callId" class="textboxInput" autocomplete="off" required>
 
 
                   <select id="apptType" class="dropdown">
@@ -393,7 +393,7 @@
 
             <input type="text" id='siPrevTick' placeholder="Relevant ticket #'s ?" name="" class="mainInputBox" autocomplete="off">
             <input type="text" id='siPrefer' placeholder="Availability (Weekends, Days, etc) " name="" class="mainInputBox2" autocomplete="off">
-            <input type="text" id="siCallId" placeholder="Ujet Call ID" name="" class="textboxInput" autocomplete="off">
+            <input type="number" id="siCallId" placeholder="Ujet Call ID (number only)" name="" class="textboxInput" autocomplete="off">
 
         </select>
 
@@ -599,6 +599,51 @@
 
 
     
+    
+
+    <!---------------Upgrade Request----------------->
+
+    <div id="upgradeRequest" class="tabcontent">
+        <form id="upgradeRequestForm">
+        <fieldset class="fieldsetTop">
+            <legend><i class="fas fa-money-check"></i>&nbsp;Upgrade Request</legend>
+
+
+            <input type="text" id='urContact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
+            <input type="text" id='urCbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
+
+
+            <input type="text" id='urCurrPlan' placeholder="Current Plan?" name="" class="mainInputBox" autocomplete="off">
+            <input type="text" id='urNewPlan' placeholder="New Plan?" name="" class="mainInputBox2" autocomplete="off">
+
+            <input type="text" id='urSupportTick' placeholder="Support Ticket?" name="" class="mainInputBox" autocomplete="off">
+            <input type="text" id='urPanda' placeholder="Signed PandaDoc?" name="" class="mainInputBox2" autocomplete="off">
+
+            </select>
+
+            <fieldset>
+                <legend>Important Notes</legend><br>
+                <textarea id='urNotes' class="textarea200" placeholder="Any relevant information?" ; "autocomplete=" off"></textarea>
+
+            </fieldset>
+            <!--------------GENERATE TICKET ------------------>
+
+
+        <fieldset>
+            <legend>Ticket Notes:</legend>
+            <button class="generateNote" id="urTicketGen" type="submit"><i class="far fa-check-square"></i> GENERATE TICKET</button><br><br>
+            Subject Line: <button class="btn-copy" id="ur-sub-btn">COPY</button><br>
+            <input type="text" class="textboxInput" id='urSubject' autocomplete="off"></textarea><br>
+            <div>Ticket Display: <button class="btn-copy" id="ur-bod-btn">COPY</button></div>
+            <textarea id='urTicket' class="textarea200" autocomplete="off"></textarea><br>
+        </fieldset>
+        </form>
+    </div>
+
+
+
+
+
 
       <!-- **************************** Dispatch Ticket **************************** -->
 
@@ -1456,35 +1501,7 @@
       </div>
 
 
-      <!---------------Upgrade Request----------------->
-
-      <div id="upgradeRequest" class="tabcontent">
-          <fieldset class="fieldsetTop">
-              <legend><i class="fas fa-money-check"></i>&nbsp;Upgrade Request</legend>
-
-
-              <input type="text" id='contact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
-              <input type="text" id='cbnumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
-
-
-              <input type="text" id='contact' placeholder="Current Plan?" name="" class="mainInputBox" autocomplete="off">
-              <input type="text" id='cbnumber' placeholder="New Plan?" name="" class="mainInputBox2" autocomplete="off">
-
-              <input type="text" id='contact' placeholder="Support Ticket?" name="" class="mainInputBox" autocomplete="off">
-              <input type="text" id='cbnumber' placeholder="Signed PandaDoc?" name="" class="mainInputBox2" autocomplete="off">
-
-              </select>
-
-              <fieldset>
-                  <legend>Important Notes</legend><br>
-                  <textarea id='atNotes' class="textarea200" placeholder="Any relevant information?" ; "autocomplete=" off"></textarea>
-
-              </fieldset>
-
-      </div>
-
-
-
+      
 
       <!-----------------------------Tower Build--------------------------------------------->
 

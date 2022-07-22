@@ -382,3 +382,7 @@ $("#srTicketForm").on('submit', (e)=>{
 
   $("#srTicket").val(body)
 })
+
+$("#upgradeRequestForm").on('submit', ()=>{
+  const name = $("#")
+})
