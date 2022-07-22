@@ -127,9 +127,10 @@
                   
                   <br><br>
 
-                  <label><input type="radio" value="2Yr" name="planType" checked>2 Year Plan</label>
-                  <label style="color: #ff8000;"><input type="radio" value="M2M" name="planType">Month to Month Plan</label>
-                  <label><input type="radio" value="HUBB" name="planType">HUBB Plan</label>
+                  <label><input type="radio" value="2Yr" name="planType" checked>2 Year Plan</label><br>
+                  <label style="color: #ff8000;"><input type="radio" value="1Yr" name="planType">1 Year Plan</label><br>
+                  <label><input type="radio" value="HUBB" name="planType">HUBB Plan</label><br>
+                  <label style="color: #ff8000;"><input type="radio" value="M2M" name="planType">Month to Month Plan</label><br>
 
                   <br>
 
@@ -140,8 +141,8 @@
                       <option value="Next25">Next25</option>
                       <option value="Next35">Next35</option>
                       <option value="Next50">Next50</option>
-
                       <option value="Next100">Next100</option>
+                      <option value="Other, see Notes">Other, please include in notes</option>
 
                   </select>
 
@@ -153,8 +154,13 @@
                       <input type="checkbox" id="atFiber" name="atFiber" autocomplete="off"><br>
                       
                       <input type="text" id="atDevelopment" name="atDevelopment" autocomplete="off" placeholder="Fiber Development?" class="textboxInput">
+                      
+                      <label for="atMove">Customer moving and has Nextklink at previous residence</label>
+                      <input type="checkbox" id="atMove" autocomplete="off"><br>
 
-                      <br>
+                      <input type="text" id="atOldAddress" autocomplete="off" class="textboxInput" placeholder="Old Adress:">
+
+                      <br><br>
 
                       <!-- ****************************************  Additional Features    **************************************************************** -->
                       <!---I messed up the additional features somehow-->
@@ -181,9 +187,9 @@
 
 
                           <div>
-                              <label for="atRouter">Manged Router? ($6.99/Month)</label>
+                              <label for="atRouter">Manged Router? ($8.99/Month)</label>
                               <input type="checkbox" id="atRouter" name="atRouter" autocomplete="off"><br>
-                              <label for="atMesh">Mesh Unit? ($3.99/Month)</label>
+                              <label for="atMesh">Mesh Unit? ($4.99/Month)</label>
                               <input type="checkbox" id="atMesh" name="atMesh" autocomplete="off"><br>
                               <br><br>
                               <bold style="font-weight: bold;"> TriPod Options:</bold> <br><br>
@@ -195,13 +201,13 @@
                           <br><br>
 
                           <div>
-                              <bold style="font-weight: bold;"> Mast Options:</bold> Mast is needed <input type="checkbox" id="atMastReq"> <br><br>
+                              <!-- <bold style="font-weight: bold;"> Mast Options:</bold> Mast is needed <input type="checkbox" id="atMastReq"> <br><br>
                               <label>
                                   Purchase Type:<br>
                                   <input type="radio" name="itMastType" value="monthly">Monthly</input>
                                   <input type="radio" name="itMastType" value="outright">Outright</input>
                                   <input type="radio" name="itMastType" value="">N/A</input>
-                              </label> <br><br>
+                              </label> <br><br> -->
 
 
                               <!-- <label id="atMastSize">
@@ -270,7 +276,7 @@
                               <li>Service is not guaranteed until technician verifies signal</li>
                               <li>Speeds are verified by tech on site </li>
                               <li>
-                                  The speeds we offer are what is referred to as "burstable", meaning
+                                  The speeds we offer are up to the maximum of you plan, meaning
                                   we do not guarantee your full plan speeds as they will fluctuate, both
                                   up and down. However, if plan speeds ever drop below 60% the issue is
                                   reviewed by our Senior Support team to get this resolved.
@@ -284,9 +290,9 @@
                               <ul>
                                   <li>Tripod has $5/mo fee </li>
                                   <li>Extended Range Dish $10 fee drops off after 12 months</li>
-                                  <li>Extended Range fee is not applicable for Superlink35 and above</li>
-                                  <li>Router and VOIP services are tied into 1 year agreement</li>
-                                  <li>Speeds are burstable, meaning they will fluctuate, especially during high traffic times</li>
+                                  <li>Extended Range fee is not applicable for NEXT35 and above</li>
+                                  <li>Router and VOIP services are tied into contract term</li>
+                                  <li>Speeds are up to the indicated speed, meaning they will fluctuate, especially during high traffic times</li>
 
 
 
@@ -422,7 +428,7 @@
 
                 <input type="text" id='ccPrevTick' placeholder="Associated Tickets" name="" class="mainInputBox" autocomplete="off">
                 <input type="text" id='ccApptDate' placeholder="Appointment Date (if applicable)" name="" class="mainInputBox2" autocomplete="off">
-                <input type="number" id="ccDollarAmt" placeholder="Amount to be charged/credited, numbers only" class="textboxInput" autocomplete="off">
+                <!-- <input type="number" id="ccDollarAmt" placeholder="Amount to be charged/credited, numbers only" class="textboxInput" autocomplete="off"> -->
         </fieldset>
 
 
@@ -530,7 +536,7 @@
                 Reminders:
                 <ul>
 
-                    <li> Assign tickets to SFerris or KKeenie</li>
+                    <li> Assign tickets to SFerris or MStrickland</li>
                     <li> Provide as many relevant details as you can</li>
                 </ul>
 

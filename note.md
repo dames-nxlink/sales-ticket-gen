@@ -56,3 +56,12 @@ add CAF
 ::hundo validation
 
 
+
+
+ADD MOVE (old address v new address) to install
+ADD 1 YEAR CONTRACT
+router mesh 8.99 4.99
+
+TAKE OUT tower buiold inquiry
+
+TAKE OUT KKEENIE FROM things to know

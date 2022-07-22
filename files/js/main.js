@@ -70,40 +70,12 @@ $("#apptType").on('change', (e)=>{
   $("#apptType").val() == 'install' ? $("[name='RemoteTransferOptions']").show() : $("[name='RemoteTransferOptions']").hide()
 })
 
-
-// Stores plan pricing, used for ticket generation and to fill html, must be edited when prices change
-
-const planPricing = {
-  "2Yr" : {
-    "" : 0,
-    "Next15" : 49.95,
-    "Next20" : 59.95,
-    "Next25" : 69.95,
-    "Next35" : 79.95,
-    "Next50" : 99.95,
-    "Next100" : 119.95
-  },
-  "M2M" : {
-    "" : 0,
-    "Next10" : 59.95,
-    "Next15" : 69.95,
-    "Next20" : 79.95,
-    "Next25" : 89.95,
-    "Next35" : 99.95,
-    "Next50" : 119.95,
-    "Next100" : 139.95
-  },
-  "HUBB" : {
-    "" : 0,
-    "Next10" : 59.95,
-    "Next15" : 69.95,
-    "Next20" : 79.95,
-    "Next25" : 89.95,
-    "Next35" : 99.95,
-    "Next50" : 109.95,
-    "Next100" : 119.95
-  }
-}
+// Handle show/hide old address for moves
+$("#atOldAddress").hide()
+$("#atMove").on('change', (e)=>{
+  e.preventDefault()
+  $("#atMove").prop('checked') ? $("#atOldAddress").show() : $("#atOldAddress").hide()
+})
 
 
 // Install Ticket Generation
@@ -125,9 +97,6 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     }
     const rentOwn = $("#rentOwn").val();
     let lla = $("#lla").prop('checked');
-    // if(rentOwn === 'rent' && !lla){
-    //   return alert("Renters Must have LLA!")
-    // }
     const llaNote = rentOwn === 'rent' ? 'LLA Agreement Complete' : "LLA Not Marked";
     const accNum = $("#accountNumber").val();
     const msg = $("#message").val();
@@ -142,23 +111,6 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     if(atFiber && atDevelopment === ""){
       return alert("If this location is eligible for fiber, please include the development it falls in.")
     }
-
-
-    // Begin Additional Features
-    // const zyxel = $("#atZyxel").prop('checked') ? ` - ${$("#atZyxel").parent().text()}\n` : "";
-    // if(zyxel){total += 6.99}
-    // const mikro = $("#atMikrotik").prop('checked') ? ` - ${$("#atMikrotik").parent().text()}\n` : "";
-    // const hap = $("#athAP").prop('checked') ? ` - ${$("#athAP").parent().text()}\n` : "";
-    // const mesh = $("#atMesh").prop('checked') ? ` - ${$("#atMesh").parent().text()}\n` : "";
-    // if(mesh){total += 3.99}
-    // const static = $("#atStatic").prop('checked') ? ` - ${$("#atStatic").parent().text()}\n` : "";
-    // if(static){total += 10}
-    // const voip = $("#atVOIP").prop('checked') ? ` - ${$("#atVOIP").parent().text()}\n` : "";
-    // if(voip){total += 19.99}
-    // const lDrop = $("#atLDrop").prop('checked') ? ` - ${$("#atLDrop").parent().text()}\n` : "";
-    // if(lDrop){total += 50}
-    // const exRDish = $("#atExRDish").prop('checked') ? ` - ${$("#atExRDish").parent().text()}\n` : "";
-    // if(exRDish){total += 10}
     const router = $("#atRouter").prop("checked") ? "Router: Yes\n" : ""
     const mesh = $("#atMesh").prop("checked") ? "Mesh Unit: Yes\n" : ""
     let tripod = ""
@@ -195,7 +147,9 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     const transferInfo = $("#atRemoteTransfer").prop('checked') ? 
     `Attempting Remote Transfer: ${$("#atRemoteTransfer").prop('checked')}\n` +
     `Previous Account Holder has consented: ${$("#atOldAccountAgreed").prop('checked')}\n` +
-    `Old Account Number: ${$("#atOldAccount").val() ? $("#atOldAccount").val() : "Agent did not include"}\n` : ''
+    `Old Account Number: ${$("#atOldAccount").val() ? $("#atOldAccount").val() : "Agent did not include"}\n` : '';
+    const moving = $("#atMove").prop('checked');
+    const oldAddress = $("#atOldAddress").val()
     
     
     // Generate and append subject to DOM
@@ -203,10 +157,12 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     $("#atSubject").val(subject);
 
     let body = 
-    `##Appointment Notes##\n`+
+    `##Appointment${moving ? '/Move' : ''} Notes ##\n`+
     `Appointment note prepared by ${agent}.\n\n`+
     
     `Appointment Type: ${apptType}\n` +
+    `Move: ${moving}\n` + 
+    `${moving ? 'Old Address: ' + oldAddress + '\n' : ''}`
     `Who's Calling: ${name} \n` +
     `Address: ${address}\n` +
     `UJET Call ID : <<${atCallId}>>\n`+
@@ -275,7 +231,7 @@ $("#salesInquiryForm").on('submit', (e) => {
   $("#siSubject").val(`Sales Inquiry | ${reason}`)
   body = `#### ${reason} ####\n` +
   `Who Called: ${name}\n` +
-  `Best Callback: ${number}` + 
+  `Best Callback: ${number}\n` + 
   `Reason: ${reason}\n` +
   `UJET Call ID : <<${callId}>>\n` +
   `Availability: ${preferredTime}\n` +
@@ -298,6 +254,7 @@ const departments = {
     "Make Payment",
     "Credit Request",
     "Change Payment Method",
+    "Move/Transfer",
     "Other"
   ],
   "Dispatch" : [
@@ -336,7 +293,7 @@ $("#ccTicketForm").on("submit", (e)=>{
   if(!department || !reason){
     return alert("Please Select Department and Reason")
   }
-  const dollarAmt = $("#ccDollarAmt").val() ? "$" + $("#ccDollarAmt").val() : '';
+  // const dollarAmt = $("#ccDollarAmt").val() ? "$" + $("#ccDollarAmt").val() : '';
   const prevTicket = $("#ccPrevTick").val();
   const preferredTime = $("#ccPrefer").val();
   const note = $("#ccTicketNote").val();
@@ -347,7 +304,7 @@ $("#ccTicketForm").on("submit", (e)=>{
   `UJET Call ID : <<${callId}>>\n` +
   `Department Calling For: ${department}\n` +
   `Reason For Call: ${reason}\n` +
-  `Amount to be collected/credited: ${dollarAmt}\n`
+  // `Amount to be collected/credited: ${dollarAmt}\n`
   `Associated Tickets: ${prevTicket}\n` +
   `Availability: ${preferredTime}\n` +
   `Notes: \n\n${note}`;
