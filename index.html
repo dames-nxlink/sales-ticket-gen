@@ -107,7 +107,7 @@
 
                   <label name="RemoteTransferOptions" for="atRemoteTransfer"> Attempting Remote Transfer?</label>
                   <input type="checkbox" id="atRemoteTransfer" name="RemoteTransferOptions"><br>
-                  <label name="RemoteTransferOptions" for="atOldAccountAgreed">Previous Account Holder Consent?</label>
+                  <label style="color: #ff8000;" name="RemoteTransferOptions" for="atOldAccountAgreed">Previous Account Holder Consent?</label>
                   <input type="checkbox" id="atOldAccountAgreed" name="RemoteTransferOptions">
                   <input name="RemoteTransferOptions" id="atOldAccount" type="text" class="mainInputBox" placeholder="Old Account Number">
 
@@ -589,6 +589,9 @@
             <input type="number" id='srCallId' placeholder="UJET Call Id (required), numbers only" required name="" class="textboxInput" autocomplete="off">
             <label for="urPanda">Signed PandaDoc?</label>
             <input type="checkbox" id='urPanda' placeholder="Signed PandaDoc?" name=""  autocomplete="off">
+            <br><br>
+            <label><input type="radio" value="2Yr" name="upgradeType" checked>2 Year Plan</label>
+            <label style="color: #ff8000;"><input type="radio" value="M2M" name="upgradeType">Month to Month Plan</label>
             <br><br>
 
             </select>

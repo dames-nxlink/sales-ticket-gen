@@ -192,10 +192,10 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     const agent = $("#agent").val().toUpperCase();
     const notes = $("#atNotes").val();
     const towers = $("#towersReviewed").val() ? " - Towers Reviewed: " +  $("#towersReviewed").val() + " \n" : '';
-    const transferInfo = 
+    const transferInfo = $("#atRemoteTransfer").prop('checked') ? 
     `Attempting Remote Transfer: ${$("#atRemoteTransfer").prop('checked')}\n` +
     `Previous Account Holder has consented: ${$("#atOldAccountAgreed").prop('checked')}\n` +
-    `Old Account Number: ${$("#atOldAccount").val() ? $("#atOldAccount").val() : "Agent did not include"}\n`
+    `Old Account Number: ${$("#atOldAccount").val() ? $("#atOldAccount").val() : "Agent did not include"}\n` : ''
     
     
     // Generate and append subject to DOM
@@ -211,7 +211,7 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     `Address: ${address}\n` +
     `UJET Call ID : <<${atCallId}>>\n`+
     `Account# : ${accNum}\n`+
-    $("#atRemoteTransfer").prop('checked') ? transferInfo : `` +
+    `${transferInfo}\n` +
     `Zone : ${zone}\n`+
     `Important Messages: ${msg}\n`+
     `Rent/Own: ${rentOwn} | LLA: ${llaNote}\n\n\n`+
@@ -219,7 +219,7 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     `Plan Option : ${planOption}\n\n`+
     `---Additional Features---\n` +
     `${ router + mesh + tripod + mast }\n\n`+
-    `---Sales Options---\n`+
+    // `---Sales Options---\n`+
     // `${ hubb + verHubb + mkHubb + offVOIP + offDish }\n\n`+
 
     `---Appointment Details---\n`+
@@ -389,15 +389,16 @@ $("#upgradeRequestForm").on('submit', (e)=>{
   const number = $("#urCbnumber").val();
   const currPlan = $("#urCurrPlan").val();
   const newPlan = $("#urNewPlan").val();
-  // const sptTicket = $("#urSupportTicket").val();
+  const upgradeType = $("input[name='upgradeType']:checked").val();
   const panda = $("#urPanda").prop('checked');
   const urNotes = $("#urNotes").val();
-  $("#urSubject").val(`Upgrade Request Ticket | ${currPlan} => ${newPlan}`)
+  $("#urSubject").val(`Upgrade Request | ${upgradeType} | ${currPlan} => ${newPlan}`)
   const body = 
   `######## Upgrade Request ########\n` +
   `Current Plan: ${currPlan}\n` +
   `Desired Plan: ${newPlan}\n` +
   `PandaDoc Signed: ${panda}\n` +
+  `Plan Terms: ${planType}\n` +
   `Who's Calling: ${name}\n` +
   `Best Callback Number: ${number}\n` +
   `Notes: ${urNotes}`
