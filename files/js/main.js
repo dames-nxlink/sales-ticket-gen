@@ -383,11 +383,24 @@ $("#srTicketForm").on('submit', (e)=>{
   $("#srTicket").val(body)
 })
 
-$("#upgradeRequestForm").on('submit', ()=>{
+$("#upgradeRequestForm").on('submit', (e)=>{
+  e.preventDefault();
   const name = $("#urContact").val();
   const number = $("#urCbnumber").val();
   const currPlan = $("#urCurrPlan").val();
   const newPlan = $("#urNewPlan").val();
-  const sptTicket = $("#urSupportTicket").val();
-  const panda = $("#urPanda").prop('checked')
+  // const sptTicket = $("#urSupportTicket").val();
+  const panda = $("#urPanda").prop('checked');
+  const urNotes = $("#urNotes").val();
+  $("#urSubject").val(`Upgrade Request Ticket | ${currPlan} => ${newPlan}`)
+  const body = 
+  `######## Upgrade Request ########\n` +
+  `Current Plan: ${currPlan}\n` +
+  `Desired Plan: ${newPlan}\n` +
+  `PandaDoc Signed: ${panda}\n` +
+  `Who's Calling: ${name}\n` +
+  `Best Callback Number: ${number}\n` +
+  `Notes: ${urNotes}`
+
+  $("#urTicket").val(body)
 })
