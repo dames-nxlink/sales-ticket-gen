@@ -153,7 +153,8 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     // if(lDrop){total += 50}
     // const exRDish = $("#atExRDish").prop('checked') ? ` - ${$("#atExRDish").parent().text()}\n` : "";
     // if(exRDish){total += 10}
-    const router = $("#atRouter").prop("checked")
+    const router = $("#atRouter").prop("checked") ? "Router: Yes\n" : ""
+    const mesh = $("#atMesh").prop("checked") ? "Mesh Unit: Yes\n" : ""
     let tripod = ""
     let mast = ""
     if($("input[name='itTri']:checked").val()){
@@ -205,7 +206,7 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     `Plan Type: ${planType}\n`+
     `Plan Option : ${planOption}\n\n`+
     `---Additional Features---\n` +
-    `${ router + tripod + mast }\n\n`+
+    `${ router + mesh + tripod + mast }\n\n`+
     `---Sales Options---\n`+
     // `${ hubb + verHubb + mkHubb + offVOIP + offDish }\n\n`+
 
