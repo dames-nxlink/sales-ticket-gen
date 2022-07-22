@@ -273,6 +273,8 @@ $("#salesInquiryForm").on('submit', (e) => {
   $("#siBody").val(body)
 })
 
+
+// Call center ticket generation
 const departments = {
   "Tech Support" : [
     "New Technical Issue", "Known Technical Issue", "Upgrade Verification",'Other'
@@ -296,9 +298,11 @@ const departments = {
   ]
 }
 
+$("#ccDollarAmt").hide()
 $("#ccDepartment").on("change", (e)=>{
   e.preventDefault()
   const department = $("#ccDepartment").val();
+  department == "Billing" ? $("#ccDollarAmt").show() : $("#ccDollarAmt").hide();
   if(!department){
     return alert("Please Select a Department")
   }
@@ -320,6 +324,7 @@ $("#ccTicketForm").on("submit", (e)=>{
   if(!department || !reason){
     return alert("Please Select Department and Reason")
   }
+  const dollarAmt = $("#ccDollarAmt").val() ? "$" + $("#ccDollarAmt").val() : '';
   const prevTicket = $("#ccPrevTick").val();
   const preferredTime = $("#ccPrefer").val();
   const note = $("#ccTicketNote").val();
@@ -330,6 +335,7 @@ $("#ccTicketForm").on("submit", (e)=>{
   `UJET Call ID : <<${callId}>>\n` +
   `Department Calling For: ${department}\n` +
   `Reason For Call: ${reason}\n` +
+  `Amount to be collected/credited: ${dollarAmt}\n`
   `Associated Tickets: ${prevTicket}\n` +
   `Availability: ${preferredTime}\n` +
   `Notes: \n\n${note}`;

@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>Tickets (v4.8)</title>
+    <title>Sales Gen (v1)</title>
 
 
 
@@ -58,8 +58,7 @@
 	  <button class="tablinks buttonMenu" onclick="openTab(event, 'salesInquiry')" id="defaultOpen"><i class="fas fa-money-check"></i> Sales Inquiry Ticket</button>
       <button class="tablinks buttonMenu" onclick="openTab(event, 'callCenter')" id="defaultOpen"><i class="fas fa-phone-volume"></i> Call Center Ticket</button>
       <button class="tablinks buttonMenu" onclick="openTab(event, 'supervisorTicket')" id="defaultOpen"><i class="fas fa-exclamation-circle"></i>  Supervisor Ticket</button>
-      <!-- <button class="tablinks buttonMenu" onclick="openTab(event, 'supervisorTicket')" id="defaultOpen"><i class="fas fa-exclamation-circle"></i>  Hi Tim!!</button> -->
-	  
+
       <!-- <button class="tablinks buttonMenu" onclick="openTab(event, 'dispatchTicket')" id="defaultOpen"><i class="fas fa-headset"></i>  Dispatch Ticket</button>
 	  <button class="tablinks buttonMenu" onclick="openTab(event, 'siteSurvey')" id="defaultOpen"><i class="fas fa-binoculars"></i> Site Survey</button>
       <button class="tablinks buttonMenu" onclick="openTab(event, 'Move')" id="defaultOpen"><i class="fas fa-suitcase"></i> Move</button>
@@ -429,7 +428,7 @@
 
             <input type="text" id='ccContact' placeholder="Who is calling?" name="" class="mainInputBox" autocomplete="off">
             <input type="text" id='ccNumber' placeholder="Best callback number?" name="" class="mainInputBox2" autocomplete="off">
-            <input type="text" id="ccCallId" placeholder="UJET Call Id (required)" name="" class="textboxInput" autocomplete="off">
+            <input type="number" id="ccCallId" placeholder="UJET Call Id (required, numbers only)" name="" class="textboxInput" autocomplete="off">
 
             <select id="ccDepartment" class="dropdown">
                 <option value="">-- Pick Department --</option>
@@ -443,6 +442,7 @@
 
                 <input type="text" id='ccPrevTick' placeholder="Associated Tickets" name="" class="mainInputBox" autocomplete="off">
                 <input type="text" id='ccApptDate' placeholder="Appointment Date (if applicable)" name="" class="mainInputBox2" autocomplete="off">
+                <input type="number" id="ccDollarAmt" placeholder="Amount to be charged/credited, numbers only" class="textboxInput" autocomplete="off">
         </fieldset>
 
 
@@ -509,7 +509,7 @@
 
 
             <input type="text" id='srPrevTick' placeholder="Associated tickets" name="" class="mainInputBox" autocomplete="off">
-            <input type="text" id='srCallId' placeholder="UJET Call Id (required)" required name="" class="mainInputBox2" autocomplete="off">
+            <input type="number" id='srCallId' placeholder="UJET Call Id (required), numbers only" required name="" class="mainInputBox2" autocomplete="off">
 
             <input type="text" id='srSsvReason' placeholder="Reason for sooner date, if applicable" name="" class="mainInputBox" autocomplete="off">
 
