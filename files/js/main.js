@@ -159,7 +159,7 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     let body = 
     `##Appointment${moving ? '/Move' : ''} Notes ##\n`+
     `Appointment note prepared by ${agent}.\n\n`+
-    
+    `ACP: ${atACP}\n` + 
     `Appointment Type: ${apptType}\n` +
     `Move: ${moving}\n` + 
     `${moving ? 'Old Address: ' + oldAddress + '\n' : ''}`
