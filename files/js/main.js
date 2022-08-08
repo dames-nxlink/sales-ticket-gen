@@ -162,7 +162,7 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     `ACP: ${atACP}\n` + 
     `Appointment Type: ${apptType}\n` +
     `Move: ${moving}\n` + 
-    `${moving ? 'Old Address: ' + oldAddress + '\n' : ''}`
+    `${moving ? 'Old Address: ' + oldAddress + '\n' : ''}` +
     `Who's Calling: ${name} \n` +
     `Address: ${address}\n` +
     `UJET Call ID : <<${atCallId}>>\n`+
@@ -177,16 +177,12 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     `${ router + mesh + tripod + mast }\n\n`+
     // `---Sales Options---\n`+
     // `${ hubb + verHubb + mkHubb + offVOIP + offDish }\n\n`+
-
     `---Appointment Details---\n`+
     `${ zone + coords + beThere + date + time }\n\n`+
-
     `$${serviceFee}\n` +
-
     `**Agent Notes**\n` +
     `${notes}\n` +
-
-    `${towers}`
+    `${towers}`;
     
     $("#atBody").val(body)
     return true
