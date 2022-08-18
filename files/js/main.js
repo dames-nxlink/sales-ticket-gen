@@ -351,7 +351,7 @@ $("#upgradeRequestForm").on('submit', (e)=>{
   `Current Plan: ${currPlan}\n` +
   `Desired Plan: ${newPlan}\n` +
   `PandaDoc Signed: ${panda}\n` +
-  `Plan Terms: ${planType}\n` +
+  `Plan Terms: ${upgradeType}\n` +
   `Who's Calling: ${name}\n` +
   `Best Callback Number: ${number}\n` +
   `Notes: ${urNotes}`
