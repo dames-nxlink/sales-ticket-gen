@@ -98,7 +98,7 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     const rentOwn = $("#rentOwn").val();
     let lla = $("#lla").prop('checked');
     const llaNote = rentOwn === 'rent' ? 'LLA Agreement Complete' : "LLA Not Marked";
-    const accNum = $("#accountNumber").val();
+    const accNum = $("#atAccountNumber").val();
     const msg = $("#message").val();
     const planType = $("input[name='planType']:checked").val();
     const planOption = $(`#atPlanType`).val();
