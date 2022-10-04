@@ -124,6 +124,7 @@
 
                   <input type="text" placeholder="Account Number?" required id="atAccountNumber" class="mainInputBox" autocomplete="off">
                   <input type="text" id='atMessage' placeholder="Important Message (dogs, gate codes, etc)" name="importantmessage" class="mainInputBox2" autocomplete="off">
+                  <input type="text" id="cxRequestDate" placeholder="CX Request Date or Soonest Date" class="textboxInput" autocomplete="off">
                   
                   <br><br>
 
@@ -144,6 +145,13 @@
                       <option value="Next100">Next100</option>
                       <option value="Other, see Notes">Other, please include in notes</option>
 
+                  </select> <br>
+                  <select id="atTechType" class="dropdown atTechType">
+                      <option value="">--Tech Type --</option>
+                      <option value="Fixed Wireless">Fixed Wireless</option>
+                      <option value="LTE">LTE</option>
+                      <option value="Tarana">Tarana</option>
+                      <option value="Fiber">Fiber</option>
                   </select>
 
 
@@ -248,15 +256,18 @@
                               <br><br>
                           </div> -->
 
-
-
+                          <input type="text" id="atMountType" placeholder="Mount type & Distance:" class="textboxInput" autocomplete="off">
+                          <input type="text" id="atGNPText" placeholder="GNP: What tower? Located where on the property?" class="textboxInput" autocomplete="off">
+                          <br><label for="atGNPSnip">Add Snip of LOS per GNP:</label>
+                          <input type="checkbox" id="atGNPSnip" autocomplete="off"><br>
                           <input type="text" id='atZone' placeholder="Zone?" name="" class="mainInputBox" autocomplete="off" required>
                           <!-- <input type="text" id='atSlot' placeholder="Slot?" name="" class="mainInputBox2" autocomplete="off" required> -->
                           <input type="text" id='atCoords' placeholder="Coordinates?" name="Coordinates" class="mainInputBox2" autocomplete="off" required>
                           <input type="text" id='atBeThere' placeholder="Who will be there (over 18 yrs. old)?" name="atBeThere" class="mainInputBox" autocomplete="off" required>
                           <input type="text" id='atInstallFee' placeholder="Installation/Site Survey Fee (no '$')" name="atInstallFee" class="mainInputBox2" autocomplete="off" required>
 
-                          <input type="text" class="textboxInput" id="atDate" placeholder="MM/DD/YY" type="text" autocomplete="off" />
+                          <input type="text" class="mainInputBox" id="atDate" placeholder="MM/DD/YY" type="text" autocomplete="off" />
+                          <input type="text" class="mainInputBox2" id="atDiscount" placeholder="Discount:" autocomplete="off">
                           <br><br>
 
 

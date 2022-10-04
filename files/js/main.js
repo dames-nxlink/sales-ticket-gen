@@ -105,6 +105,10 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     if(!planOption){
       return alert("Please select plan")
     }
+    const techType = $("#atTechType").val();
+    if(!techType){
+      return alert("Please select plan")
+    }
     const atACP = $("#atACP").prop('checked')
     const atFiber = $("#atFiber").prop('checked')
     const atDevelopment = $("#atDevelopment").val()
@@ -139,7 +143,8 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     const coords = ` - Coordinates: ${$("#atCoords").val()}\n`;
     const beThere = ` - Who will be there: ${$("#atBeThere").val()}\n`;
     const serviceFee = `Installation?Site Survey Fee: ${$("#atInstallFee").val()}`;
-    const date = $("#atDate").val() ? ` - Installation Date: ${$("#atDate").val()}\n` : "";
+    const cxReqDate = $("#cxRequestDate").val();
+    const dateStr = $("#atDate").val() ? ` - Installation Date: ${$("#atDate").val()}\n` : "";
     const time = ' - ' + $("input[name='timeInstall']:checked").val() + '\n';
     const agent = $("#agent").val().toUpperCase();
     const notes = $("#atNotes").val();
@@ -150,39 +155,52 @@ $("#appointmentTicketForm").on('submit', (e)=>{
     `Old Account Number: ${$("#atOldAccount").val() ? $("#atOldAccount").val() : "Agent did not include"}\n` : '';
     const moving = $("#atMove").prop('checked');
     const oldAddress = $("#atOldAddress").val()
-    
+    const gnpText = $("#atGNPText").val();
+    const gnpSnip = $("#atGNPSnip").val();
+    const mountType = $("#atMountType").val();
+    const discount = $("#atDiscount").val();
     
     // Generate and append subject to DOM
     let subject = apptType +  ' | ' + $("#atDate").val() + ' | ' + time + ' | ' + zone
     $("#atSubject").val(subject);
 
     let body = 
-    `##Appointment${moving ? '/Move' : ''} Notes ##\n`+
-    `Appointment note prepared by ${agent}.\n\n`+
-    `ACP: ${atACP}\n` + 
-    `Appointment Type: ${apptType}\n` +
-    `Move: ${moving}\n` + 
-    `${moving ? 'Old Address: ' + oldAddress + '\n' : ''}` +
-    `Who's Calling: ${name} \n` +
-    `Address: ${address}\n` +
-    `UJET Call ID : <<${atCallId}>>\n`+
-    `Account# : ${accNum}\n`+
-    `${transferInfo}\n` +
-    `Zone : ${zone}\n`+
-    `Important Messages: ${msg}\n`+
-    `Rent/Own: ${rentOwn} | LLA: ${llaNote}\n\n\n`+
-    `Plan Type: ${planType}\n`+
-    `Plan Option : ${planOption}\n\n`+
-    `---Additional Features---\n` +
-    `${ router + mesh + tripod + mast }\n\n`+
-    // `---Sales Options---\n`+
-    // `${ hubb + verHubb + mkHubb + offVOIP + offDish }\n\n`+
-    `---Appointment Details---\n`+
-    `${ zone + coords + beThere + date + time }\n\n`+
-    `$${serviceFee}\n` +
-    `**Agent Notes**\n` +
-    `${notes}\n` +
-    `${towers}`;
+      `##Appointment${moving ? '/Move' : ''} Notes ##\n`+
+      `Important Message: Call 30 minutes prior\n` +
+      `Type of Technology: ${techType}\n` +
+      `Customer Request Date Or soonest Date: ${cxReqDate}\n` +
+      $("#atMessage").val() + '\n' +
+      `Account# : ${accNum}\n`+
+      `UJET Call ID : <<${atCallId}>>\n`+
+      dateStr +
+      `Rent/Own: ${rentOwn} | LLA: ${llaNote}\n\n\n`+
+      coords +
+      `GNP: What tower? Located where on the property? ${gnpText}\n` +
+      `Snip of LOS per GNP added to Files? ${gnpSnip}\n` +
+      `Mount Type and Distance: ${mountType}\n` +
+      beThere +
+      `Plan Type: ${planType}\n`+
+      `Plan Option : ${planOption}\n\n`+
+      `Discount: ${discount}\n` +
+      `Appointment note prepared by ${agent}.\n\n`+
+      `ACP: ${atACP}\n` + 
+      `Move: ${moving}\n` + 
+      `${moving ? 'Old Address: ' + oldAddress + '\n' : ''}` +
+      `Who's Calling: ${name} \n` +
+      `Address: ${address}\n` +
+      `${transferInfo}\n` +
+      `Zone : ${zone}\n`+
+      // `Important Messages: ${msg}\n`+
+      `---Additional Features---\n` +
+      `${ router + mesh + tripod + mast }\n\n\n\n`+
+      // `---Sales Options---\n`+
+      // `${ hubb + verHubb + mkHubb + offVOIP + offDish }\n\n`+
+      `---Appointment Details---\n`+
+      `${ `Appointment Type: ${apptType}\n` + zone + coords + beThere + dateStr + time }\n\n`+
+      `${serviceFee}\n` +
+      `**Agent Notes**\n` +
+      `${notes}\n` +
+      `${towers}`;
     
     $("#atBody").val(body)
     return true
