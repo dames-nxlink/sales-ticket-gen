@@ -170,33 +170,34 @@ $("#appointmentTicketForm").on('submit', (e)=>{
       `Type of Technology: ${techType}\n` +
       `Customer Request Date Or soonest Date: ${cxReqDate}\n` +
       $("#atMessage").val() + '\n' +
-      `Account# : ${accNum}\n`+
-      `UJET Call ID : <<${atCallId}>>\n`+
+      ` - Account# : ${accNum}\n`+
+      ` - UJET Call ID : <<${atCallId}>>\n`+
       dateStr +
-      `Rent/Own: ${rentOwn} | LLA: ${llaNote}\n\n\n`+
+      ` - Rent/Own: ${rentOwn} | LLA: ${llaNote}\n\n\n`+
       coords +
-      `GNP: What tower? Located where on the property? ${gnpText}\n` +
-      `Snip of LOS per GNP added to Files? ${gnpSnip}\n` +
-      `Mount Type and Distance: ${mountType}\n` +
+      ` - GNP: What tower? Located where on the property? ${gnpText}\n` +
+      ` - Snip of LOS per GNP added to Files? ${gnpSnip}\n` +
+      ` - Mount Type and Distance: ${mountType}\n` +
       beThere +
-      `Plan Type: ${planType}\n`+
-      `Plan Option : ${planOption}\n\n`+
-      `Discount: ${discount}\n` +
-      `Appointment note prepared by ${agent}.\n\n`+
-      `ACP: ${atACP}\n` + 
-      `Move: ${moving}\n` + 
+      ` - Plan Type: ${planType}\n`+
+      ` - Plan Option : ${planOption}\n\n`+
+      ` - Discount: ${discount}\n` +
+      ` - Appointment note prepared by ${agent}.\n\n`+
+      ` - ACP: ${atACP}\n` + 
+      ` - Move: ${moving}\n` + 
       `${moving ? 'Old Address: ' + oldAddress + '\n' : ''}` +
       `Who's Calling: ${name} \n` +
       `Address: ${address}\n` +
       `${transferInfo}\n` +
       `Zone : ${zone}\n`+
+      `Total Due: ${$("#atTotalDue").val()}\n` +
       // `Important Messages: ${msg}\n`+
       `---Additional Features---\n` +
       `${ router + mesh + tripod + mast }\n\n\n\n`+
       // `---Sales Options---\n`+
       // `${ hubb + verHubb + mkHubb + offVOIP + offDish }\n\n`+
       `---Appointment Details---\n`+
-      `${ `Appointment Type: ${apptType}\n` + zone + coords + beThere + dateStr + time }\n\n`+
+      `${ `Appointment Type: ${apptType}\n` + zone + coords + beThere + dateStr + time} Total Due: ${$("#atTotalDue").val()}\n\n`+
       `${serviceFee}\n` +
       `**Agent Notes**\n` +
       `${notes}\n` +
